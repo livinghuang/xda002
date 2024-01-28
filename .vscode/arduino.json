@@ -1,0 +1,6 @@
+{
+    "configuration": "LORAWAN_REGION=6,CPUFreq=160,UploadSpeed=921600,DebugLevel=verbose,LoRaWanDebugLevel=3,LORAWAN_DEVEUI=0,LORAWAN_PREAMBLE_LENGTH=0",
+    "board": "Heltec-esp32:esp32:wireless_mini_shell",
+    "port": "/dev/tty.wchusbserial10",
+    "sketch": "xda002.ino"
+}
