@@ -1,5 +1,4 @@
-#include "GLOBAL.h"
-#ifdef USE_AT
+#include "global.h"
 #ifndef AT_H
 #define AT_H
 
@@ -92,5 +91,4 @@ void at_blesnd(const char *params);
 void at_blestop(const char *params);
 #endif
 
-#endif
 #endif

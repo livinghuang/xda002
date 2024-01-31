@@ -1,7 +1,5 @@
-#include "GLOBAL.h"
-#ifdef USE_LORA
+#include "global.h"
 #include "LORA.h"
-#include "BAT.h"
 
 static bool lora_process_flag = false;
 
@@ -140,4 +138,3 @@ void send_to_lora(uint8_t *data)
     deviceState = DEVICE_STATE_INIT;
     lora_wait = 0;
 }
-#endif

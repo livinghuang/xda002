@@ -1,7 +1,8 @@
-#ifdef USE_LORA
 #ifndef LORA_H
 #define LORA_H
-#include "LoRaWan_APP.h"
+
+#include "global.h"
+
 #define LORA_RTS LORA_STA
 #define LORA_CTS LORA_READY
 
@@ -76,6 +77,4 @@ extern uint8_t confirmedNbTrials;
 void lora_init(void);
 void lora_process(void);
 void send_to_lora(uint8_t *data);
-void lora_stop(void);
-#endif
 #endif

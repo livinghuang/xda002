@@ -1,16 +1,22 @@
-#include "GLOBAL.h"
-#include "Arduino.h"
-#include "esp_system.h"
+#include "global.h"
 
 void setup()
 {
   Serial.begin(115200);
-  ble_init();
-  lora_init();
+  esp_sleep_wakeup_cause_t wakeup_reason = print_wakeup_reason();
+  if (wakeup_reason == ESP_SLEEP_WAKEUP_UNDEFINED)
+  {
+    get_chip_id();
+    ble_init();
+    run_with_time_escape(30000, ble_process, ble_stop);
+  }
+
+  // lora_init();
+  // rs485_init();
 }
 
 void loop()
 {
   // lora_process();
-  ble_process();
+  // rs485_process();
 }

@@ -1,7 +1,6 @@
 #ifndef BLE_H
 #define BLE_H
-#include "Arduino.h"
-extern bool deviceConnected;
+#include "global.h"
 void ble_init();
 void ble_process(void);
 void send_to_ble(const char *data);
