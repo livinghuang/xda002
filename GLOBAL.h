@@ -11,17 +11,18 @@
 #include "Wire.h"
 #include "esp_sleep.h"
 #include <esp_timer.h>
+#include <mbedtls/sha256.h>
 
+#include "bat.h"
 #include "ble.h"
-#include "LORA.h"
+#include "lorawan.h"
 #include "AT.h"
 #include "RS485.h"
 
 extern bool deviceConnected;
 
 void printHex(byte *data, int length);
-float getBatteryVoltage();
-byte getBatteryLevel(float);
+
 
 
 extern bool reset_run_with_time_escape;

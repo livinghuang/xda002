@@ -1,7 +1,4 @@
 #include "global.h"
-#include "LORA.h"
-
-static bool lora_process_flag = false;
 
 static void prepareTxFrame(uint8_t port);
 /* OTAA para*/
@@ -34,10 +31,10 @@ uint16_t userChannelsMask[6] = {0x00FF, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000};
 LoRaMacRegion_t loraWanRegion = LORAMAC_REGION_AS923_AS2;
 
 /*LoraWan Class, Class A and Class C are supported*/
-DeviceClass_t loraWanClass = CLASS_C;
+DeviceClass_t loraWanClass = CLASS_A;
 
 /*the application data transmission duty cycle.  value in [ms].*/
-uint32_t appTxDutyCycle = 15000;
+uint32_t appTxDutyCycle = 60000;
 
 /*OTAA or ABP*/
 bool overTheAirActivation = false;
@@ -71,8 +68,82 @@ uint8_t appPort = 2;
  * the datarate, in case the LoRaMAC layer did not receive an acknowledgment
  */
 uint8_t confirmedNbTrials = 4;
-uint32_t lora_wait = 0;
-void lora_init(void)
+
+void generate_lorawan_parameters(uint8_t *nwkSKey, uint8_t *appSKey, uint32_t *devAddr, uint8_t *devEUI)
+{
+    uint8_t mac[6];
+    unsigned char hash_output[32];
+
+    // Get MAC address
+    esp_efuse_mac_get_default(mac);
+
+    // Use MAC address to seed SHA-256 for key generation
+    mbedtls_sha256_context ctx;
+    mbedtls_sha256_init(&ctx);
+    mbedtls_sha256_starts(&ctx, 0); // 0 for SHA-256
+    mbedtls_sha256_update(&ctx, mac, sizeof(mac));
+    mbedtls_sha256_finish(&ctx, hash_output);
+    mbedtls_sha256_free(&ctx);
+
+    // Generate NwkSKey and AppSKey (using first and second halves of the hash)
+    memcpy(nwkSKey, hash_output, 16);
+    memcpy(appSKey, hash_output + 16, 16);
+
+    // Generate DevAddr (using last 4 bytes of MAC address)
+    *devAddr = (mac[2] << 24) | (mac[3] << 16) | (mac[4] << 8) | mac[5];
+
+    // Generate DevEUI (could use MAC address directly or hashed version)
+    // Here we'll expand the MAC address into a DevEUI format
+    devEUI[0] = mac[0];
+    devEUI[1] = mac[1];
+    devEUI[2] = mac[2];
+    devEUI[3] = 0xFF; // Insert FF FE to make it look like an extended MAC-based EUI-64
+    devEUI[4] = 0xFE;
+    devEUI[5] = mac[3];
+    devEUI[6] = mac[4];
+    devEUI[7] = mac[5];
+
+    get_chip_id();
+
+    // Print results
+    Serial.println("Generated LoRaWAN Parameters:");
+
+    Serial.print("NwkSKey: ");
+    for (int i = 0; i < 16; i++)
+    {
+        Serial.printf("%02X", nwkSKey[i]);
+    }
+    Serial.println();
+    Serial.flush();
+
+    Serial.print("AppSKey: ");
+    for (int i = 0; i < 16; i++)
+    {
+        Serial.printf("%02X", appSKey[i]);
+    }
+    Serial.println();
+    Serial.flush();
+
+    Serial.print("DevAddr: ");
+    Serial.printf("%08X", *devAddr);
+    Serial.println();
+    Serial.flush();
+
+    Serial.print("DevEUI: ");
+    for (int i = 0; i < 8; i++)
+    {
+        Serial.printf("%02X", devEUI[i]);
+    }
+    Serial.println();
+    Serial.flush();
+}
+
+void generate_lorawan_parameters_by_chip_id(void)
+{
+    generate_lorawan_parameters(nwkSKey, appSKey, &devAddr, devEui);
+}
+
+void lorawan_init(void)
 {
 #if (LORAWAN_DEVEUI_AUTO)
     LoRaWAN.generateDeveuiByChipID();
@@ -81,7 +152,7 @@ void lora_init(void)
     deviceState = DEVICE_STATE_INIT;
 }
 
-void lora_process(void)
+void lorawan_process(void)
 {
     switch (deviceState)
     {
@@ -126,15 +197,11 @@ void lora_process(void)
 static void prepareTxFrame(uint8_t port)
 {
     float batteryVoltage = getBatteryVoltage();
-    byte batteryLevel = getBatteryLevel(batteryVoltage);
+    byte batteryLevel = getBatteryLevel();
     appDataSize = 5;
-    appData[0] = batteryLevel;
-}
-
-void send_to_lora(uint8_t *data)
-{
-    lora_process_flag = true;
-    appData[1] = *data;
-    deviceState = DEVICE_STATE_INIT;
-    lora_wait = 0;
+    appData[0] = 1; // batteryLevel;
+    appData[1] = 1; // batteryLevel;
+    appData[2] = 1; // batteryLevel;
+    appData[3] = 1; // batteryLevel;
+    appData[4] = 1; // batteryLevel;
 }

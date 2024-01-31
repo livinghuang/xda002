@@ -15,44 +15,6 @@ void printHex(byte *data, int length)
   Serial.println(); // Print a newline character at the end
 }
 
-float getBatteryVoltage()
-{
-  uint32_t sum = 0;
-  uint32_t test_min = 695;
-  uint32_t test_max = 1030;
-  for (size_t i = 0; i < 16; i++)
-  {
-    sum += analogRead(2);
-    delay(10);
-  }
-  float avg = (float)(sum >> 4) / 4095 * 2500;
-  Serial.print("avg");
-  Serial.println(avg);
-  return ((avg - test_min) * (4.2 - 3) / (test_max - test_min) + 3);
-}
-
-uint8_t getBatteryLevel(void)
-{
-  const float maxBattery = 4.2;
-  const float minBattery = 3.0;
-  const float batVolt = getBatteryVoltage();
-  const float batVoltage = fmax(minBattery, fmin(maxBattery, batVolt));
-  uint8_t batLevel = BAT_LEVEL_EMPTY + ((batVoltage - minBattery) / (maxBattery - minBattery)) * (BAT_LEVEL_FULL - BAT_LEVEL_EMPTY);
-  if (batVolt > 4.2)
-  {
-    batLevel = 255;
-  }
-  if (batVolt < 3.0)
-  {
-    batLevel = 0;
-  }
-  Serial.print("{");
-  Serial.println(batVoltage);
-  Serial.print(batLevel);
-  Serial.println("}");
-  return batLevel;
-}
-
 // Default stop callback function
 void default_stop_callback()
 {
@@ -127,6 +89,6 @@ esp_sleep_wakeup_cause_t print_wakeup_reason()
 uint64_t get_chip_id()
 {
   uint64_t chipid = ESP.getEfuseMac();
-  Serial.printf("ESP32ChipID=%04X%08X\n", (uint16_t)(chipid >> 32), (uint32_t)chipid); // print High 2 bytes
+  Serial.printf("ESP32ChipID=%04X%08X\n", (uint16_t)(chipid >> 32), (uint32_t)chipid);
   return chipid;
 }
