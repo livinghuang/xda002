@@ -18,12 +18,12 @@
 #include "lorawan.h"
 #include "AT.h"
 #include "RS485.h"
+#include "soil.h"
 
 extern bool deviceConnected;
+extern byte responseBuffer[256];
 
 void printHex(byte *data, int length);
-
-
 
 extern bool reset_run_with_time_escape;
 void run_with_time_escape(uint64_t escape_period_ms, void (*callback)(), void (*stop_callback)());

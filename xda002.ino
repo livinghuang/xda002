@@ -10,14 +10,14 @@ void setup()
     get_chip_id();
     // ble_init();
     // run_with_time_escape(30000, ble_process, ble_stop);
-    lorawan_init();
   }
 
-  // rs485_init();
+  rs485_init();
+  rs485_process();
+  lorawan_init();
 }
 
 void loop()
 {
   lorawan_process();
-  // rs485_process();
 }

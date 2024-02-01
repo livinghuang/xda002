@@ -1,5 +1,10 @@
 #include "global.h"
+// Dps310 Opject
+bool resendflag = false;
+bool deepsleepflag = false;
 
+RTC_DATA_ATTR int bootCount = 0;
+uint64_t chipid;
 void printHex(byte *data, int length)
 {
   for (int i = 0; i < length; i++)
