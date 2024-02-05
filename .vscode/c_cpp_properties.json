@@ -231,6 +231,8 @@
                 "/Users/living/Library/Arduino15/packages/Heltec-esp32/hardware/esp32/0.0.9/libraries/SPI/src",
                 "/Users/living/Library/Arduino15/packages/Heltec-esp32/hardware/esp32/0.0.9/libraries/WiFi/src",
                 "/Users/living/Library/Arduino15/packages/Heltec-esp32/hardware/esp32/0.0.9/libraries/Wire/src",
+                "/Users/living/Library/Arduino15/packages/Heltec-esp32/hardware/esp32/0.0.9/libraries/FS/src",
+                "/Users/living/Library/Arduino15/packages/Heltec-esp32/hardware/esp32/0.0.9/libraries/FFat/src",
                 "/Users/living/Library/Arduino15/packages/Heltec-esp32/hardware/esp32/0.0.9/libraries/BLE/src",
                 "/Users/living/Library/Arduino15/packages/Heltec-esp32/tools/riscv32-esp-elf-gcc/gcc8_4_0-esp-2021r2-patch3/riscv32-esp-elf/include/c++/8.4.0",
                 "/Users/living/Library/Arduino15/packages/Heltec-esp32/tools/riscv32-esp-elf-gcc/gcc8_4_0-esp-2021r2-patch3/riscv32-esp-elf/include/c++/8.4.0/riscv32-esp-elf/rv32imc/ilp32",

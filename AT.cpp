@@ -1,7 +1,6 @@
 #include "global.h"
 
 #define AT_BUFFER 256
-// extern enum Storage_Operation storage_operation;
 const String ok_string = "OK";
 const String error_string = "ERROR";
 const String Invalid_params_string = "Invalid params string";
@@ -50,21 +49,6 @@ Command commandList[] = {
 #endif
 #ifdef AT_INFO
     {"AT+INFO", at_info},
-#endif
-#ifdef AT_LRAINIT
-    {"AT+LRAINIT", at_lrainit},
-#endif
-#ifdef AT_LRASND
-    {"AT+LRASND", at_lrasnd},
-#endif
-#ifdef AT_BLEINIT
-    {"AT+BLEINIT", at_bleinit},
-#endif
-#ifdef AT_BLESND
-    {"AT+BLESND", at_blesnd},
-#endif
-#ifdef AT_BLESTOP
-    {"AT+BLESTOP", at_blestop},
 #endif
 };
 
@@ -158,6 +142,7 @@ void at(const char *params)
 }
 #endif
 #ifdef AT_CLRMEM
+
 void at_clrmem(const char *params)
 {
   storage_operation = _CLR;
@@ -189,7 +174,6 @@ void at_read(const char *params)
   {
     Serial.printf("readQty:%ld\n", readQty);
     storage_operation = _READ;
-    read_record_init();
   }
 
   Serial.println(ok_string);
@@ -221,10 +205,10 @@ void at_write(const char *params)
   {
     uint16_t writeData = static_cast<uint16_t>(data);
     Serial.printf("writeData:%d\n", writeData);
-    storage_operation = _WRITE;
     extern char storage_buffer[];
     memset(storage_buffer, 0, 4);
     memcpy(storage_buffer, &writeData, 2);
+    storage_operation = _WRITE;
   }
   Serial.println(ok_string);
   command_executed = true;
@@ -247,133 +231,6 @@ void at_info(const char *params)
   storage_operation = _INFO;
   Serial.println(ok_string);
   command_executed = true;
-}
-#endif
-
-#ifdef AT_FSHSTOP
-void at_fshstop(const char *params)
-{
-  Serial.println(ok_string);
-  command_executed = true;
-  return;
-}
-#endif
-
-#ifdef AT_LRAINIT
-void at_lrainit(const char *params)
-{
-  bool result = true;
-
-  if (result)
-  {
-    Serial.println(ok_string);
-  }
-  else
-  {
-    Serial.println(error_string);
-  }
-  command_executed = true;
-  return;
-}
-#endif
-
-#ifdef AT_LRASND
-void at_lrasnd(const char *params)
-{
-  bool result = true;
-
-  send_to_lora((uint8_t *)params);
-
-  if (result)
-  {
-    Serial.println(ok_string);
-  }
-  else
-  {
-    Serial.println(error_string);
-  }
-  command_executed = true;
-  return;
-}
-#endif
-
-#ifdef AT_LRASTOP
-void at_lrastop(const char *params)
-{
-  bool result = true;
-
-  lora_stop();
-
-  if (result)
-  {
-    Serial.println(ok_string);
-  }
-  else
-  {
-    Serial.println(error_string);
-  }
-  command_executed = true;
-  return;
-}
-#endif
-
-#ifdef AT_BLEINIT
-void at_bleinit(const char *params)
-{
-  bool result = true;
-  ble_init();
-  if (result)
-  {
-    Serial.println(ok_string);
-  }
-  else
-  {
-    Serial.println(error_string);
-  }
-  command_executed = true;
-  return;
-}
-#endif
-
-#ifdef AT_BLESND
-void at_blesnd(const char *params)
-{
-  bool result = true;
-
-  char buffer[30];
-  strcpy(buffer, params);
-  send_to_ble(buffer);
-
-  if (result)
-  {
-    Serial.println(ok_string);
-  }
-  else
-  {
-    Serial.println(error_string);
-  }
-  command_executed = true;
-  return;
-}
-#endif
-
-#ifdef AT_BLESTOP
-void at_blestop(const char *params)
-{
-  bool result = true;
-
-  ble_stop();
-
-  if (result)
-  {
-    Serial.println(ok_string);
-  }
-  else
-  {
-    Serial.println(error_string);
-  }
-  command_executed = true;
-  return;
 }
 #endif
 

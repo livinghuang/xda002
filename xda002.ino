@@ -1,5 +1,17 @@
 #include "global.h"
 
+// initial loop is for power on stage, it could keep run a period time to wait user enter setting mode.
+void initial_loop(void)
+{
+  ble_process();
+  storage_process();
+}
+// initial loop stop is to stop initial loop.
+void initial_loop_stop(void)
+{
+  ble_stop();
+}
+
 void setup()
 {
   Serial.begin(115200);
@@ -8,16 +20,22 @@ void setup()
   if (wakeup_reason == ESP_SLEEP_WAKEUP_UNDEFINED)
   {
     get_chip_id();
-    // ble_init();
-    // run_with_time_escape(30000, ble_process, ble_stop);
+    board_init();
+    ble_init();
+    run_with_time_escape(30000, initial_loop, initial_loop_stop);
   }
 
-  rs485_init();
-  rs485_process();
+  // rs485_init();
+  // rs485_process();
   lorawan_init();
+
+  delay(100);
 }
 
 void loop()
 {
-  lorawan_process();
+  // lorawan_process();
+
+  delay(1000);
+  // storage_process();
 }

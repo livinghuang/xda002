@@ -1,30 +1,19 @@
-#include "global.h"
+
 #ifndef AT_H
 #define AT_H
-
+#include "global.h"
 #define AT
 // #define   AT_BOARD
 // #define   AT_CALIB
 // #define   AT_TEMPOFFSET
-// #define   AT_UPINTV
-#ifdef USE_FLASH
+// #define AT_UPINTV
 #define AT_FORMAT
 #define AT_CLRMEM
 #define AT_READ
 #define AT_WRITE
 #define AT_INFO
 #define AT_FSHSTOP
-#endif
-#ifdef USE_LORA
-#define AT_LRAINIT
-#define AT_LRASND
-#define AT_LRASTOP
-#endif
-#ifdef USE_BLE
-#define AT_BLEINIT
-#define AT_BLESND
-#define AT_BLESTOP
-#endif
+
 extern bool command_executed;
 
 void at_start(void);
@@ -69,26 +58,6 @@ void at_info(const char *params);
 #endif
 #ifdef AT_FSHSTOP
 void at_fshstop(const char *params);
-#endif
-
-#ifdef AT_LRAINIT
-void at_lrainit(const char *params);
-#endif
-#ifdef AT_LRASND
-void at_lrasnd(const char *params);
-#endif
-#ifdef AT_LRASTOP
-void at_lrastop(const char *params);
-#endif
-
-#ifdef AT_BLEINIT
-void at_bleinit(const char *params);
-#endif
-#ifdef AT_BLESND
-void at_blesnd(const char *params);
-#endif
-#ifdef AT_BLESTOP
-void at_blestop(const char *params);
 #endif
 
 #endif

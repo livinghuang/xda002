@@ -41,7 +41,7 @@ void run_with_time_escape(uint64_t escape_period_ms, void (*callback)(), void (*
     if (escaped_time >= escape_period_ms)
     {
       stop_callback();
-      printf("run_with_time_escape done\n");
+      // printf("run_with_time_escape done\n");
       break; // Exit the loop when the timeout is reached
     }
     else
@@ -52,7 +52,7 @@ void run_with_time_escape(uint64_t escape_period_ms, void (*callback)(), void (*
     if (reset_run_with_time_escape)
     {
       reset_run_with_time_escape = false;
-      printf("Resetting run_with_time_escape\n");
+      // printf("Resetting run_with_time_escape\n");
       start_time = esp_timer_get_time();
     }
     // Sleep for a short interval to avoid busy-waiting

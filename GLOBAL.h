@@ -12,14 +12,31 @@
 #include "esp_sleep.h"
 #include <esp_timer.h>
 #include <mbedtls/sha256.h>
+#include "FS.h"
+#include "FFat.h"
 
 #include "bat.h"
 #include "ble.h"
 #include "lorawan.h"
-#include "AT.h"
+#include "at.h"
 #include "RS485.h"
 #include "soil.h"
+#include "flash.h"
+#include "storage.h"
+#include "bsp.h"
 
+enum Storage_Operation
+{
+  _INIT, // mount FFAT and show the total space and free space
+  _INFO, // show the total space and free space and also show the storage files information
+  _WRITE,// write data
+  _READ,
+  _CLR,
+  _FORMAT,
+  _NONE
+};
+
+extern enum Storage_Operation storage_operation;
 extern bool deviceConnected;
 extern byte responseBuffer[256];
 
