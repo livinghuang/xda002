@@ -84,11 +84,10 @@ class MyCallbacks : public BLECharacteristicCallbacks
     if (rxValue.length() > 0)
     {
       // or AT+TEMP=25.2
-      static char buffer[256];
-      memset(buffer, 0, 256);
-      strncpy(buffer, rxValue.c_str(), rxValue.length());
-      Serial.println(buffer);
-      parseAndExecuteCommand(buffer);
+      memset(ble_buffer, 0, 256);
+      strncpy(ble_buffer, rxValue.c_str(), rxValue.length());
+      Serial.println(ble_buffer);
+      parseAndExecuteCommand(ble_buffer);
     }
   }
 };
@@ -130,9 +129,7 @@ void ble_init()
   strcpy(buffer, CHARACTERISTIC_UUID_TX_HEAD);
   sprintf(buffer, "%s%04X%08X", buffer, (uint16_t)(chip_id >> 32), (uint32_t)chip_id);
   Serial.println(buffer);
-  pTxCharacteristic = pService->createCharacteristic(
-      buffer,
-      BLECharacteristic::PROPERTY_NOTIFY);
+  pTxCharacteristic = pService->createCharacteristic(buffer, BLECharacteristic::PROPERTY_NOTIFY);
 
   pTxCharacteristic->addDescriptor(new BLE2902());
   strcpy(buffer, CHARACTERISTIC_UUID_RX_HEAD);
@@ -159,7 +156,6 @@ void send_to_ble(const char *data)
   txValue = data;
   ble_send_flag = true;
 }
-
 void ble_process(void)
 {
   if (deviceConnected)

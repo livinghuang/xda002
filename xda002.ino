@@ -15,7 +15,7 @@ void initial_loop_stop(void)
 void setup()
 {
   Serial.begin(115200);
-  // generate_lorawan_parameters_by_chip_id();
+  generate_lorawan_parameters_by_chip_id();
   esp_sleep_wakeup_cause_t wakeup_reason = print_wakeup_reason();
   if (wakeup_reason == ESP_SLEEP_WAKEUP_UNDEFINED)
   {
@@ -24,18 +24,24 @@ void setup()
     ble_init();
     run_with_time_escape(30000, initial_loop, initial_loop_stop);
   }
+  rs485_init();
+  rs485_process();
 
-  // rs485_init();
-  // rs485_process();
+  byte batteryLevel = getBatteryLevel();
+  uint8_t heltec_rs485_soil_sensor_data_length = responseBuffer[2];
+  uint8_t *heltec_rs485_soil_sensor_data_head = &responseBuffer[3];
+
+  decode_soil(heltec_rs485_soil_sensor_data_head, heltec_rs485_soil_sensor_data_length);
+  Serial.flush();
+  appDataSize = 1 + heltec_rs485_soil_sensor_data_length;
+  appData[0] = batteryLevel;
+  memcpy(appData + 1, heltec_rs485_soil_sensor_data_head, heltec_rs485_soil_sensor_data_length);
+  save_to_storage(&appData[0]);
   lorawan_init();
-
-  delay(100);
 }
 
 void loop()
 {
-  // lorawan_process();
-
-  delay(1000);
-  // storage_process();
+  lorawan_process();
+  storage_process();
 }

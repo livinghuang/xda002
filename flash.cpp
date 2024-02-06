@@ -1,7 +1,7 @@
 // This file should be compiled with 'Partition Scheme' (in Tools menu)
 // set to 'Default with ffat' if you have a 4MB ESP32 dev module or
 // set to '16M Fat' if you have a 16MB ESP32 dev module.
-#include "GLOBAL.h"
+#include "global.h"
 
 //==============================================================
 // void readFile(fs::FS &fs, const char *path)
@@ -160,25 +160,15 @@ void listDir(fs::FS &fs, const char *dirname, uint8_t levels)
     file = root.openNextFile();
   }
 }
-
-//==============================================================
-
 bool readBinFile(fs::FS &fs, const char *path, void *buffer, size_t bufferSize)
 {
-  // Serial.printf("Reading file: %s\r\n", path);
-
   File file = fs.open(path, FILE_READ);
-
   if (!file || file.isDirectory())
   {
-    // Serial.println("- failed to open file for reading");
     return false;
   }
   size_t bytesRead = file.readBytes((char *)buffer, bufferSize);
   file.close();
-
-  // Serial.print("read from file:");
-  Serial.write((const uint8_t *)buffer, bytesRead);
   return true;
 }
 

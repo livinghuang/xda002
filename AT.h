@@ -6,7 +6,7 @@
 // #define   AT_BOARD
 // #define   AT_CALIB
 // #define   AT_TEMPOFFSET
-// #define AT_UPINTV
+#define AT_UPINTV
 #define AT_FORMAT
 #define AT_CLRMEM
 #define AT_READ

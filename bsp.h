@@ -27,8 +27,7 @@ typedef union board_information_union
 };
 extern board_information_union board_information;
 
+void print_board_information(void);
+void print_storage_information(void);
 void board_init();
-void clear_data(void);
-void clear_memory(void);
-void set_default_board_information(void);
 #endif

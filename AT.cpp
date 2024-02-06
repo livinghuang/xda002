@@ -1,15 +1,16 @@
 #include "global.h"
 
 #define AT_BUFFER 256
-const String ok_string = "OK";
-const String error_string = "ERROR";
-const String Invalid_params_string = "Invalid params string";
+const char ok_string[] = "OK\r\n";
+const char error_string[] = "ERROR\r\n";
+const char Invalid_params_string[] = "Invalid params string\r\n";
 void command_error_handler(void);
 bool command_executed;
 void parseAndExecuteCommand(const char *command);
 char at_buffer[AT_BUFFER];
-bool is_param_a_string(const char *ptr, const int maxSize);
 typedef void (*CommandHandler)(const char *params);
+void at_print(const char *data);
+
 // 命令列表定义
 typedef struct
 {
@@ -134,11 +135,7 @@ void parseAndExecuteCommand(const char *command)
 #ifdef AT
 void at(const char *params)
 {
-  Serial.println("AT OK");
-  if (deviceConnected)
-  {
-    send_to_ble("AT OK");
-  }
+  at_print("AT OK\r\n");
 }
 #endif
 #ifdef AT_CLRMEM
@@ -146,7 +143,7 @@ void at(const char *params)
 void at_clrmem(const char *params)
 {
   storage_operation = _CLR;
-  Serial.println(ok_string);
+  at_print(ok_string);
   command_executed = true;
   return;
 }
@@ -156,10 +153,10 @@ void at_clrmem(const char *params)
 void at_read(const char *params)
 {
   char *endptr;
-  if ((params == NULL) || (!is_param_a_string(params, 10)))
+  if ((params == NULL) || (!is_a_string(params, 10)))
   {
     // 无效的命令格式，可以进行错误处理
-    Serial.println(error_string);
+    at_print(error_string);
     command_executed = true;
     return;
   }
@@ -172,7 +169,9 @@ void at_read(const char *params)
   }
   else
   {
-    Serial.printf("readQty:%ld\n", readQty);
+    char buffer[128];
+    sprintf(buffer, "readQty:%ld\r\n", readQty);
+    at_print(buffer);
     storage_operation = _READ;
   }
 
@@ -187,10 +186,10 @@ void at_write(const char *params)
 {
   char *endptr;
 
-  if ((params == NULL) || (!is_param_a_string(params, 10)))
+  if ((params == NULL) || (!is_a_string(params, 10)))
   {
     // 无效的命令格式，可以进行错误处理
-    Serial.println(error_string);
+    at_print(error_string);
     command_executed = true;
     return;
   }
@@ -204,7 +203,10 @@ void at_write(const char *params)
   else
   {
     uint16_t writeData = static_cast<uint16_t>(data);
-    Serial.printf("writeData:%d\n", writeData);
+    // Serial.printf("writeData:%d\n", writeData);
+    char buffer[128];
+    sprintf(buffer, "writeData:%d\r\n", writeData);
+    at_print(buffer);
     extern char storage_buffer[];
     memset(storage_buffer, 0, 4);
     memcpy(storage_buffer, &writeData, 2);
@@ -219,8 +221,28 @@ void at_write(const char *params)
 void at_format(const char *params)
 {
   storage_operation = _FORMAT;
-  Serial.println(ok_string);
+  at_print(ok_string);
   command_executed = true;
+}
+#endif
+
+#ifdef AT_UPINTV
+void at_upintv(const char *params)
+{
+  storage_operation = _SET_BRD;
+  char *endptr;
+
+  if ((params == NULL) || (!is_a_string(params, 10)))
+  {
+    // 无效的命令格式，可以进行错误处理
+    at_print(error_string);
+    command_executed = true;
+    return;
+  }
+
+  long data = strtol(params, &endptr, 10);
+  appTxDutyCycle = data;
+  at_print(ok_string);
 }
 #endif
 
@@ -229,29 +251,23 @@ bool at_info_flag = false;
 void at_info(const char *params)
 {
   storage_operation = _INFO;
-  Serial.println(ok_string);
+  at_print(ok_string);
   command_executed = true;
 }
 #endif
 
 void command_error_handler(void)
 {
-  Serial.println(Invalid_params_string);
-  Serial.println(error_string);
+  at_print(Invalid_params_string);
+  at_print(error_string);
   command_executed = true;
 }
 
-bool is_param_a_string(const char *ptr, const int maxSize)
+void at_print(const char *data)
 {
-  int i = 0; // 用于计数已检查的字节数
-
-  while (i < maxSize)
+  Serial.print(data);
+  if (deviceConnected)
   {
-    if (ptr[i] == '\0')
-    {
-      return true;
-    }
-    i++;
+    send_to_ble(data);
   }
-  return false;
 }

@@ -97,3 +97,21 @@ uint64_t get_chip_id()
   Serial.printf("ESP32ChipID=%04X%08X\n", (uint16_t)(chipid >> 32), (uint32_t)chipid);
   return chipid;
 }
+bool is_a_string(const char *ptr, const int maxSize)
+{
+  int i = 0; // 用于计数已检查的字节数
+
+  while (i < maxSize)
+  {
+    if (ptr[i] == '\0')
+    {
+      if (i == 0)
+      {
+        return false;
+      }
+      return true;
+    }
+    i++;
+  }
+  return false;
+}

@@ -1,45 +1,30 @@
 // This file should be compiled with 'Partition Scheme' (in Tools menu)
 // set to 'Default with ffat' if you have a 4MB ESP32 dev module or
 // set to '16M Fat' if you have a 16MB ESP32 dev module.
-#include "GLOBAL.h"
+#include "global.h"
 
 #define STORAGE_INFO_FILE_NAME "/storage_info"
 
 #define PAGE_NAME_HEAD "/page"
 
-#define EACH_PAGE_SIZE 160                                 // UNIT: BYTES
-#define TOTAL_PAGES UINT32_MAX                             // UNIT: EACH
-#define EACH_LINE_SIZE 2                                   // UNIT: BYTES
+#define EACH_PAGE_SIZE 160     // UNIT: BYTES
+#define TOTAL_PAGES UINT32_MAX // UNIT: EACH
+#define MAX_FILE_NAME_LEN 100
+
+#define EACH_LINE_SIZE DATA_LEN                            // UNIT: BYTES
 #define EACH_PAGE_LINES (EACH_PAGE_SIZE / EACH_LINE_SIZE)  // UNIT: EACH
 #define TOTAL_STORAGE_BYTES (EACH_PAGE_SIZE * TOTAL_PAGES) // UNIT: BYTES
 #define TOTAL_LINES (TOTAL_STORAGE_BYTES / EACH_LINE_SIZE) // UNIT: EACH
 #define RESERVE_FREE_SPACE EACH_PAGE_SIZE
-#define MAX_FILE_NAME_LEN 100
 
-struct storage_info_struct
-{
-  uint32_t page;
-  int line;
-  int oldest_page;
-} storage_info;
-
+enum Storage_Operation storage_operation = _NONE;
 char storage_info_file_name[30] = {0};
+storage_info_struct storage_info;
 // show the total space and free space and also show the storage files information
 void get_storage_info(void)
 {
-  Serial.println("\n====================");
-  Serial.printf("Total space: %10u\n", FFat.totalBytes());
-  Serial.printf("Free space: %10u\n", FFat.freeBytes());
-  Serial.println("====================");
-  listDir(FFat, "/", 3);
-  Serial.println("\n====================");
   readBinFile(FFat, STORAGE_INFO_FILE_NAME, &storage_info, sizeof(storage_info));
-  Serial.println("\n====================");
-  Serial.print("Current page:");
-  Serial.println(storage_info.page);
-  Serial.print("Current line:");
-  Serial.println(storage_info.line);
-  Serial.println("====================");
+  print_storage_information();
 }
 
 void delete_oldest_file(void)
@@ -187,13 +172,32 @@ bool storage_init(void)
     FFat.end();
     return false;
   }
+  delay(100);
+  Serial.println("\n====================");
   Serial.printf("Total space: %10u\n", FFat.totalBytes());
   Serial.printf("Free space: %10u\n", FFat.freeBytes());
+  Serial.println("====================");
+  Serial.flush();
   listDir(FFat, "/", 3);
-  bool fileExists = fileExistsInDir(FFat, "/", "storage_info");
+  bool fileExists = fileExistsInDir(FFat, "/", "board_info");
+
   if (fileExists)
   {
-    // The file STORAGE_INFO_FILE was found in the root directory
+    // The Board info file was found in the root directory
+    Serial.println("Board info file exists");
+    get_board_info();
+  }
+  else
+  {
+    // The Board info file was not found in the root directory
+    Serial.println("Board info file does not exist");
+    set_board_info();
+  }
+
+  fileExists = fileExistsInDir(FFat, "/", "storage_info");
+  if (fileExists)
+  {
+    // The file storage info file was found in the root directory
     Serial.println("File exists");
     get_storage_info();
   }
@@ -229,10 +233,37 @@ bool clr_record(void)
   return writeBinFile(FFat, STORAGE_INFO_FILE_NAME, &storage_info, sizeof(storage_info));
 }
 
-enum Storage_Operation storage_operation = _NONE;
+void set_board_info(void)
+{
+  board_information.data.appTxDutyCycle = appTxDutyCycle;
+
+  writeBinFile(FFat, "/board_info", &board_information, sizeof(board_information));
+
+  Serial.println("Set default board information success");
+  Serial.flush();
+}
+
+void get_board_info(void)
+{
+  if (readBinFile(FFat, "/board_info", &board_information, sizeof(board_information)))
+  {
+    Serial.println("Read board information success");
+    print_board_information();
+  }
+  else
+  {
+    Serial.println("Read board information failure: I am a new board! Now I will set board information as default");
+    set_board_info();
+  }
+}
+void set_storage_info(void)
+{
+}
 
 void storage_process(void)
 {
+  uint8_t buffer[256] = {0};
+
   switch (storage_operation)
   {
   case _INIT:
@@ -240,7 +271,15 @@ void storage_process(void)
     storage_operation = _NONE;
     break;
   case _INFO:
+    get_board_info();
     get_storage_info();
+    if (deviceConnected)
+    {
+      strcpy(ble_buffer, board_information_string);
+      strcat(ble_buffer, storage_information_string);
+
+      send_to_ble(ble_buffer);
+    }
     storage_operation = _NONE;
     break;
   case _WRITE:
@@ -263,6 +302,10 @@ void storage_process(void)
     break;
   case _FORMAT:
     format_storage();
+    storage_operation = _NONE;
+    break;
+  case _SET_BRD:
+    set_board_info();
     storage_operation = _NONE;
     break;
   case _NONE:

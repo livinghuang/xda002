@@ -25,25 +25,20 @@
 #include "storage.h"
 #include "bsp.h"
 
-enum Storage_Operation
-{
-  _INIT, // mount FFAT and show the total space and free space
-  _INFO, // show the total space and free space and also show the storage files information
-  _WRITE,// write data
-  _READ,
-  _CLR,
-  _FORMAT,
-  _NONE
-};
+#define DATA_LEN 17
 
+extern storage_info_struct storage_info;
 extern enum Storage_Operation storage_operation;
 extern bool deviceConnected;
-extern byte responseBuffer[256];
-
+extern byte responseBuffer[];
+extern char board_information_string[];
+extern char storage_information_string[];
+extern char ble_buffer[] ;
 void printHex(byte *data, int length);
 
 extern bool reset_run_with_time_escape;
 void run_with_time_escape(uint64_t escape_period_ms, void (*callback)(), void (*stop_callback)());
 esp_sleep_wakeup_cause_t print_wakeup_reason();
+bool is_a_string(const char *ptr, const int maxSize);
 uint64_t get_chip_id();
 #endif

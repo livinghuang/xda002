@@ -1,6 +1,8 @@
 #ifndef BLE_H
 #define BLE_H
 #include "global.h"
+
+extern char ble_buffer[];
 void ble_init();
 void ble_process(void);
 void send_to_ble(const char *data);

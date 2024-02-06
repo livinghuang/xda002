@@ -264,7 +264,7 @@
                 "ARDUINO_VARIANT=\"esp32c3\"",
                 "ARDUINO_PARTITION_default",
                 "ESP32",
-                "CORE_DEBUG_LEVEL=5",
+                "CORE_DEBUG_LEVEL=0",
                 "REGION_AS923",
                 "LoRaWAN_DEBUG_LEVEL=3",
                 "ACTIVE_REGION=LORAMAC_REGION_AS923",
