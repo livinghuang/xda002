@@ -33,7 +33,7 @@ extern bool deviceConnected;
 extern byte responseBuffer[];
 extern char board_information_string[];
 extern char storage_information_string[];
-extern char ble_buffer[] ;
+extern char ble_buffer[];
 void printHex(byte *data, int length);
 
 extern bool reset_run_with_time_escape;
@@ -41,4 +41,5 @@ void run_with_time_escape(uint64_t escape_period_ms, void (*callback)(), void (*
 esp_sleep_wakeup_cause_t print_wakeup_reason();
 bool is_a_string(const char *ptr, const int maxSize);
 uint64_t get_chip_id();
+void prepareData(void);
 #endif

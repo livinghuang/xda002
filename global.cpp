@@ -115,3 +115,102 @@ bool is_a_string(const char *ptr, const int maxSize)
   }
   return false;
 }
+
+// Define the struct
+typedef struct WaterMeterData
+{
+  // 總累積: Total Accumulation
+  int64_t totalAccumulationValue;
+  char totalAccumulationPoint;
+
+  // 瞬間流量: Instantaneous Flow
+  int64_t instantaneousFlowValue;
+  char instantaneousFlowPoint;
+
+  // 正向累積: Forward Accumulation
+  int64_t forwardAccumulationValue;
+  char forwardAccumulationPoint;
+
+  // 反向累積: Reverse Accumulation
+  int64_t reverseAccumulationValue;
+  char reverseAccumulationPoint;
+
+  // 漏水天數: Leak Days
+  int16_t leakDays;
+
+  // 負載天數: Load Days
+  int16_t loadDays;
+
+  // 靜止天數: No-flow Days
+  int16_t noFlowDays;
+
+  // 反向天數: Reverse Days
+  int16_t reverseDays;
+
+  // 受磁天數: Magnetic Influence Days
+  int16_t magneticInfluenceDays;
+
+  // 電力不足天數: Power Insufficiency Days
+  int16_t powerInsufficiencyDays;
+} WaterMeterData;
+
+typedef struct WaterMeterData data;
+void prepareData(void)
+{
+  float batteryVoltage = getBatteryVoltage();
+  byte batteryLevel = getBatteryLevel();
+  // uint8_t heltec_rs485_soil_sensor_data_length = responseBuffer[2];
+  // uint8_t *heltec_rs485_soil_sensor_data_head = &responseBuffer[3];
+
+  // decode_soil(heltec_rs485_soil_sensor_data_head, heltec_rs485_soil_sensor_data_length);
+  // Serial.flush();
+  // appDataSize = 1 + heltec_rs485_soil_sensor_data_length;
+  // appData[0] = batteryLevel;
+  // memcpy(appData + 1, heltec_rs485_soil_sensor_data_head, heltec_rs485_soil_sensor_data_length);
+
+  WaterMeterData meterData = {
+      .totalAccumulationValue = 1234567899,
+      .totalAccumulationPoint = 2,
+      .instantaneousFlowValue = -123456,
+      .instantaneousFlowPoint = 4,
+      .forwardAccumulationValue = 1234567899,
+      .forwardAccumulationPoint = 6,
+      .reverseAccumulationValue = -123456,
+      .reverseAccumulationPoint = 3,
+      .leakDays = 9,
+      .loadDays = 10,
+      .noFlowDays = 11,
+      .reverseDays = 12,
+      .magneticInfluenceDays = 13,
+      .powerInsufficiencyDays = 14};
+
+  appData[0] = 128;
+  appData[1] = 196;
+  appDataSize = 46;
+  memcpy(&appData[2], &meterData.totalAccumulationValue, 8);
+  appData[10] = meterData.totalAccumulationPoint;
+  memcpy(&appData[11], &meterData.instantaneousFlowValue, 4);
+  appData[15] = meterData.instantaneousFlowPoint;
+  memcpy(&appData[16], &meterData.forwardAccumulationValue, 8);
+  appData[24] = meterData.forwardAccumulationPoint;
+  memcpy(&appData[25], &meterData.reverseAccumulationValue, 8);
+  appData[33] = meterData.reverseAccumulationPoint;
+  memcpy(&appData[34], &meterData.leakDays, 2);
+  memcpy(&appData[36], &meterData.loadDays, 2);
+  memcpy(&appData[38], &meterData.noFlowDays, 2);
+  memcpy(&appData[40], &meterData.reverseDays, 2);
+  memcpy(&appData[42], &meterData.magneticInfluenceDays, 2);
+  memcpy(&appData[44], &meterData.powerInsufficiencyDays, 2);
+  for (uint8_t i = 0; i < appDataSize; i++)
+  {
+    Serial.print(appData[i], HEX);
+  }
+  Serial.println();
+  char buff[100];
+  memcpy(buff, &meterData, appDataSize);
+  for (uint8_t i = 0; i < appDataSize; i++)
+  {
+    Serial.print(buff[i], HEX);
+  }
+  Serial.println();
+}

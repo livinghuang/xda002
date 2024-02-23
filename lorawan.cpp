@@ -2,14 +2,14 @@
 
 static void prepareTxFrame(uint8_t port);
 /* OTAA para*/
-uint8_t devEui[] = {0x22, 0x32, 0x33, 0x00, 0x00, 0x88, 0x88, 0x10};
+uint8_t devEui[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x01};
 uint8_t appEui[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 uint8_t appKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88};
 
 /* ABP para*/
 uint8_t nwkSKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88};
 uint8_t appSKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88};
-uint32_t devAddr = (uint32_t)0x88888880;
+uint32_t devAddr = (uint32_t)0x88888801;
 /*LoraWan channelsmask, default channels 0-7*/
 uint16_t userChannelsMask[6] = {0x00FF, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000};
 
@@ -34,7 +34,7 @@ LoRaMacRegion_t loraWanRegion = LORAMAC_REGION_AS923_AS2;
 DeviceClass_t loraWanClass = CLASS_A;
 
 /*the application data transmission duty cycle.  value in [ms].*/
-uint32_t appTxDutyCycle = 15000;
+uint32_t appTxDutyCycle = 300000;
 
 /*OTAA or ABP*/
 bool overTheAirActivation = false;
@@ -196,14 +196,4 @@ void lorawan_process(void)
 
 static void prepareTxFrame(uint8_t port)
 {
-    float batteryVoltage = getBatteryVoltage();
-    byte batteryLevel = getBatteryLevel();
-    uint8_t heltec_rs485_soil_sensor_data_length = responseBuffer[2];
-    uint8_t *heltec_rs485_soil_sensor_data_head = &responseBuffer[3];
-
-    decode_soil(heltec_rs485_soil_sensor_data_head, heltec_rs485_soil_sensor_data_length);
-    Serial.flush();
-    appDataSize = 1 + heltec_rs485_soil_sensor_data_length;
-    appData[0] = batteryLevel;
-    memcpy(appData + 1, heltec_rs485_soil_sensor_data_head, heltec_rs485_soil_sensor_data_length);
 }
