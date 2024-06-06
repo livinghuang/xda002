@@ -36,8 +36,7 @@
 static char BLE_NAME[30] = "BLE-8888";
 BLEServer *pServer = NULL;
 BLECharacteristic *pTxCharacteristic;
-bool deviceConnected = false;
-bool oldDeviceConnected = false;
+
 const char *txValue;
 
 // See the following for generating UUIDs:

@@ -2,7 +2,9 @@
 // Dps310 Opject
 bool resendflag = false;
 bool deepsleepflag = false;
-
+bool deviceConnected = false;
+bool oldDeviceConnected = false;
+sensor_data_t sensor_data;
 RTC_DATA_ATTR int bootCount = 0;
 uint64_t chipid;
 void printHex(byte *data, int length)
@@ -157,8 +159,8 @@ typedef struct WaterMeterData
 typedef struct WaterMeterData data;
 void prepareData(void)
 {
-  float batteryVoltage = getBatteryVoltage();
-  byte batteryLevel = getBatteryLevel();
+  // float batteryVoltage = getBatteryVoltage();
+  // byte batteryLevel = getBatteryLevel();
   // uint8_t heltec_rs485_soil_sensor_data_length = responseBuffer[2];
   // uint8_t *heltec_rs485_soil_sensor_data_head = &responseBuffer[3];
 

@@ -69,86 +69,12 @@ uint8_t appPort = 2;
  */
 uint8_t confirmedNbTrials = 4;
 
-void generate_lorawan_parameters(uint8_t *nwkSKey, uint8_t *appSKey, uint32_t *devAddr, uint8_t *devEUI)
-{
-    uint8_t mac[6];
-    unsigned char hash_output[32];
-
-    // Get MAC address
-    esp_efuse_mac_get_default(mac);
-
-    // Use MAC address to seed SHA-256 for key generation
-    mbedtls_sha256_context ctx;
-    mbedtls_sha256_init(&ctx);
-    mbedtls_sha256_starts(&ctx, 0); // 0 for SHA-256
-    mbedtls_sha256_update(&ctx, mac, sizeof(mac));
-    mbedtls_sha256_finish(&ctx, hash_output);
-    mbedtls_sha256_free(&ctx);
-
-    // Generate NwkSKey and AppSKey (using first and second halves of the hash)
-    memcpy(nwkSKey, hash_output, 16);
-    memcpy(appSKey, hash_output + 16, 16);
-
-    // Generate DevAddr (using last 4 bytes of MAC address)
-    *devAddr = (mac[2] << 24) | (mac[3] << 16) | (mac[4] << 8) | mac[5];
-
-    // Generate DevEUI (could use MAC address directly or hashed version)
-    // Here we'll expand the MAC address into a DevEUI format
-    devEUI[0] = mac[0];
-    devEUI[1] = mac[1];
-    devEUI[2] = mac[2];
-    devEUI[3] = 0xFF; // Insert FF FE to make it look like an extended MAC-based EUI-64
-    devEUI[4] = 0xFE;
-    devEUI[5] = mac[3];
-    devEUI[6] = mac[4];
-    devEUI[7] = mac[5];
-
-    get_chip_id();
-
-    // Print results
-    Serial.println("Generated LoRaWAN Parameters:");
-
-    Serial.print("NwkSKey: ");
-    for (int i = 0; i < 16; i++)
-    {
-        Serial.printf("%02X", nwkSKey[i]);
-    }
-    Serial.println();
-    Serial.flush();
-
-    Serial.print("AppSKey: ");
-    for (int i = 0; i < 16; i++)
-    {
-        Serial.printf("%02X", appSKey[i]);
-    }
-    Serial.println();
-    Serial.flush();
-
-    Serial.print("DevAddr: ");
-    Serial.printf("%08X", *devAddr);
-    Serial.println();
-    Serial.flush();
-
-    Serial.print("DevEUI: ");
-    for (int i = 0; i < 8; i++)
-    {
-        Serial.printf("%02X", devEUI[i]);
-    }
-    Serial.println();
-    Serial.flush();
-}
-
-void generate_lorawan_parameters_by_chip_id(void)
-{
-    generate_lorawan_parameters(nwkSKey, appSKey, &devAddr, devEui);
-}
-
 void lorawan_init(void)
 {
 #if (LORAWAN_DEVEUI_AUTO)
     LoRaWAN.generateDeveuiByChipID();
 #endif
-    Mcu.begin();
+    Mcu.begin(HELTEC_BOARD, SLOW_CLK_TPYE);
     deviceState = DEVICE_STATE_INIT;
 }
 
@@ -158,7 +84,12 @@ void lorawan_process(void)
     {
     case DEVICE_STATE_INIT:
     {
+#if (LORAWAN_DEVEUI_AUTO)
+        LoRaWAN.generateDeveuiByChipID();
+#endif
         LoRaWAN.init(loraWanClass, loraWanRegion);
+        // both set join DR and DR when ADR off
+        LoRaWAN.setDefaultDR(3);
         break;
     }
     case DEVICE_STATE_JOIN:
@@ -184,6 +115,8 @@ void lorawan_process(void)
     case DEVICE_STATE_SLEEP:
     {
         LoRaWAN.sleep(loraWanClass);
+        pinMode(pVext, OUTPUT);
+        digitalWrite(pVext, HIGH);
         break;
     }
     default:
@@ -196,4 +129,6 @@ void lorawan_process(void)
 
 static void prepareTxFrame(uint8_t port)
 {
+    Serial.println("Prepare Frame");
+    Serial.flush();
 }

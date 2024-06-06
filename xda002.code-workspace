@@ -2,21 +2,7 @@
 	"folders": [
 		{
 			"path": "."
-		},
-		{
-			"path": "../../../Library/Arduino15/packages/Heltec-esp32/hardware/esp32/0.0.9"
 		}
 	],
-	"settings": {
-		"files.associations": {
-			"optional": "cpp",
-			"random": "cpp",
-			"stdexcept": "cpp",
-			"functional": "cpp",
-			"type_traits": "cpp",
-			"array": "cpp",
-			"string": "cpp",
-			"string_view": "cpp"
-		}
-	}
+	"settings": {}
 }

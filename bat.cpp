@@ -1,40 +1,133 @@
-
 #include "global.h"
 
-float getBatteryVoltage()
+#define SUB_BAT_EMPTY 3.3
+#define SUB_BAT_FULL 4.1
+
+#define MAIN_BAT_V_MIN 11.5 // Define the minimum voltage
+#define MAIN_BAT_V_MAX 13.5 // Define the maximum voltage
+
+void get_battery_level()
 {
-  uint32_t sum = 0;
-  uint32_t test_min = 695;
-  uint32_t test_max = 1030;
-  for (size_t i = 0; i < 16; i++)
-  {
-    sum += analogRead(2);
-    delay(10);
-  }
-  float avg = (float)(sum >> 4) / 4095 * 2500;
-  Serial.print("avg");
-  Serial.println(avg);
-  return ((avg - test_min) * (4.2 - 3) / (test_max - test_min) + 3);
+  float bat_voltage = getMainBatteryVoltage();
+  Serial.print("bat_voltage: ");
+  Serial.println(bat_voltage);
+  delay(1000);
+  // Map the voltage to the 0-255 range
+  sensor_data.battery_level = mapVoltageToLevel(bat_voltage, MAIN_BAT_V_MIN, MAIN_BAT_V_MAX);
+  Serial.print("battery_level: ");
+  Serial.println(sensor_data.battery_level);
 }
 
-uint8_t getBatteryLevel()
+byte mapVoltageToLevel(float voltage, float V_min, float V_max)
 {
-  const float maxBattery = 4.2;
-  const float minBattery = 3.0;
-  const float batVolt = getBatteryVoltage();
-  const float batVoltage = fmax(minBattery, fmin(maxBattery, batVolt));
-  uint8_t batLevel = BAT_LEVEL_EMPTY + ((batVoltage - minBattery) / (maxBattery - minBattery)) * (BAT_LEVEL_FULL - BAT_LEVEL_EMPTY);
-  if (batVolt > 4.2)
+  if (voltage < V_min)
   {
-    batLevel = 255;
+    voltage = V_min;
   }
-  if (batVolt < 3.0)
+  else if (voltage > V_max)
   {
-    batLevel = 0;
+    voltage = V_max;
   }
-  Serial.print("{");
-  Serial.println(batVoltage);
-  Serial.print(batLevel);
-  Serial.println("}");
-  return batLevel;
+
+  // Map the voltage to a 0-255 level
+  return (byte)((voltage - V_min) * 255.0 / (V_max - V_min));
+}
+
+void charge_power_path_on()
+{
+  pinMode(pPOW_CHG, OUTPUT);
+  digitalWrite(pPOW_CHG, LOW);
+  Serial.println("Charge Power On");
+  Serial.flush();
+  delay(10);
+}
+
+void charge_power_path_off()
+{
+  pinMode(pPOW_CHG, OUTPUT);
+  digitalWrite(pPOW_CHG, HIGH);
+  Serial.println("Charge Power Off");
+  Serial.flush();
+  delay(10);
+}
+
+void charge_power_control()
+{
+  float bat_voltage = getSubBatteryVoltage();
+  if (bat_voltage < SUB_BAT_EMPTY)
+  {
+    charge_power_path_on();
+  }
+  if (bat_voltage > SUB_BAT_FULL)
+  {
+    charge_power_path_off();
+  }
+}
+
+float getMainBatteryVoltage()
+{
+  uint32_t sum = 0;
+  uint32_t adc = 0;
+  analogSetPinAttenuation(pM_VBAT_ADC, ADC_11db);
+  pinMode(pVBAT_Ctrl, ANALOG);
+  for (size_t i = 0; i < 16; i++)
+  {
+    adc = analogRead(pM_VBAT_ADC);
+    sum += adc;
+    // Serial.print("adc:");
+    // Serial.println(adc);
+    // Serial.flush();
+    // delay(10);
+  }
+  float avg = sum / 16.0; // 4095 * 2500;
+  // Serial.print("avg:");
+  // Serial.println(avg);
+  // Serial.flush();
+  // delay(1000);
+  float voltage = avg / 4095 * 2.97;
+  // Serial.print("volt:");
+  // Serial.println(voltage);
+  // Serial.flush();
+  // delay(1000);
+
+  float bat_voltage = voltage * 1220 / 220;
+  // Serial.print("battery volt:");
+  // Serial.println(bat_voltage);
+  // Serial.flush();
+  // delay(1000);
+  return bat_voltage;
+}
+
+float getSubBatteryVoltage()
+{
+  uint32_t sum = 0;
+  uint32_t adc = 0;
+  analogSetPinAttenuation(pS_VBAT_ADC, ADC_11db);
+  pinMode(pVBAT_Ctrl, ANALOG);
+  for (size_t i = 0; i < 16; i++)
+  {
+    adc = analogRead(pS_VBAT_ADC);
+    sum += adc;
+    // Serial.print("adc:");
+    // Serial.println(adc);
+    // Serial.flush();
+    // delay(10);
+  }
+  float avg = sum / 16.0; // 4095 * 2500;
+  // Serial.print("avg:");
+  // Serial.println(avg);
+  // Serial.flush();
+  // delay(1000);
+  float voltage = avg / 4095 * 2.97;
+  // Serial.print("volt:");
+  // Serial.println(voltage);
+  // Serial.flush();
+  // delay(1000);
+
+  float bat_voltage = voltage * 1020 / 510;
+  // Serial.print("battery volt:");
+  // Serial.println(bat_voltage);
+  // Serial.flush();
+  // delay(1000);
+  return bat_voltage;
 }

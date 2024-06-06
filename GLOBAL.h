@@ -1,12 +1,12 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
-#define USE_BLE
-
 #include "Arduino.h"
+#include "esp_wifi.h"
+#include "esp_system.h"
+
 #include "esp_system.h"
 #include "LoRaWan_APP.h"
-#include "bsp.h"
 #include "WiFi.h"
 #include "Wire.h"
 #include "esp_sleep.h"
@@ -19,14 +19,19 @@
 #include "ble.h"
 #include "lorawan.h"
 #include "at.h"
-#include "RS485.h"
-#include "soil.h"
+#include "rs485.h"
 #include "flash.h"
 #include "storage.h"
 #include "bsp.h"
 
 #define DATA_LEN 17
 
+typedef struct sensor_data
+{
+  uint8_t battery_level;
+  uint16_t humidity;
+} sensor_data_t;
+extern sensor_data_t sensor_data;
 extern storage_info_struct storage_info;
 extern enum Storage_Operation storage_operation;
 extern bool deviceConnected;

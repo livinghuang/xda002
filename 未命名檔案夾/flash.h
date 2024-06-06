@@ -1,8 +1,7 @@
 #ifndef FLASH_H
 #define FLASH_H
-#include "global.h"
-
-void flash_init();
+#include "FS.h"
+#include "FFat.h"
 bool fileExistsInDir(fs::FS &fs, const char *dirname, const char *targetFile);
 void listDir(fs::FS &fs, const char *dirname, uint8_t levels);
 void readFile(fs::FS &fs, const char *path);

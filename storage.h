@@ -17,6 +17,8 @@ enum Storage_Operation
   _NONE     // do nothing, in standby
 };
 
+extern enum Storage_Operation storage_operation;
+
 typedef struct storage_info_struct
 {
   uint32_t page;
@@ -32,6 +34,7 @@ bool save_to_storage(void *data); // save data to storage
 bool clr_record(void);            // clear storage record
 void read_record(void);           // read storage record
 void get_storage_info(void);
+
 void read_record_init(void); // init the storage record
 
 void set_board_info(void);   // set the board information

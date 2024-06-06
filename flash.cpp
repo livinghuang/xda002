@@ -1,97 +1,8 @@
-// This file should be compiled with 'Partition Scheme' (in Tools menu)
-// set to 'Default with ffat' if you have a 4MB ESP32 dev module or
-// set to '16M Fat' if you have a 16MB ESP32 dev module.
 #include "global.h"
+#include <FFat.h>
 
-//==============================================================
-// void readFile(fs::FS &fs, const char *path)
-// {
-//     Serial.printf("Reading file: %s\r\n", path);
-
-//     File file = fs.open(path);
-//     if (!file || file.isDirectory())
-//     {
-//         Serial.println("- failed to open file for reading");
-//         return;
-//     }
-
-//     Serial.println("- read from file:");
-//     while (file.available())
-//     {
-//         Serial.write(file.read());
-//     }
-//     file.close();
-// }
-
-// void writeFile(fs::FS &fs, const char *path, const char *message)
-// {
-//     Serial.printf("Writing file: %s\r\n", path);
-
-//     File file = fs.open(path, FILE_WRITE);
-//     if (!file)
-//     {
-//         Serial.println("- failed to open file for writing");
-//         return;
-//     }
-//     if (file.print(message))
-//     {
-//         Serial.println("- file written");
-//     }
-//     else
-//     {
-//         Serial.println("- write failed");
-//     }
-//     file.close();
-// }
-
-// void appendFile(fs::FS &fs, const char *path, const char *message)
-// {
-//     Serial.printf("Appending to file: %s\r\n", path);
-
-//     File file = fs.open(path, FILE_APPEND);
-//     if (!file)
-//     {
-//         Serial.println("- failed to open file for appending");
-//         return;
-//     }
-//     if (file.print(message))
-//     {
-//         Serial.println("- message appended");
-//     }
-//     else
-//     {
-//         Serial.println("- append failed");
-//     }
-//     file.close();
-// }
-
-// void renameFile(fs::FS &fs, const char *path1, const char *path2)
-// {
-//     Serial.printf("Renaming file %s to %s\r\n", path1, path2);
-//     if (fs.rename(path1, path2))
-//     {
-//         Serial.println("- file renamed");
-//     }
-//     else
-//     {
-//         Serial.println("- rename failed");
-//     }
-// }
-
-void deleteFile(fs::FS &fs, const char *path)
-{
-  Serial.printf("Deleting file: %s\r\n", path);
-  if (fs.remove(path))
-  {
-    Serial.println("- file deleted");
-  }
-  else
-  {
-    Serial.println("- delete failed");
-  }
-}
-
-//==============================================================
+// Define partition schemes
+#define FORMAT_FFAT false
 
 bool fileExistsInDir(fs::FS &fs, const char *dirname, const char *targetFile)
 {
@@ -160,81 +71,181 @@ void listDir(fs::FS &fs, const char *dirname, uint8_t levels)
     file = root.openNextFile();
   }
 }
-bool readBinFile(fs::FS &fs, const char *path, void *buffer, size_t bufferSize)
+
+void readFile(fs::FS &fs, const char *path)
 {
-  File file = fs.open(path, FILE_READ);
+  Serial.printf("Reading file: %s\r\n", path);
+
+  File file = fs.open(path);
   if (!file || file.isDirectory())
   {
-    return false;
+    Serial.println("- failed to open file for reading");
+    return;
   }
-  size_t bytesRead = file.readBytes((char *)buffer, bufferSize);
+
+  Serial.println("- read from file:");
+  while (file.available())
+  {
+    Serial.write(file.read());
+  }
   file.close();
-  return true;
 }
 
-bool writeBinFile(fs::FS &fs, const char *path, void *message, uint32_t len)
+void writeFile(fs::FS &fs, const char *path, const char *message)
 {
-  Serial.printf("Writing binary file: %s\r\n", path);
+  Serial.printf("Writing file: %s\r\n", path);
+
   File file = fs.open(path, FILE_WRITE);
   if (!file)
   {
     Serial.println("- failed to open file for writing");
-    return false;
+    return;
   }
-
-  size_t bytesWritten = file.write((const uint8_t *)message, len);
-  if (bytesWritten == len)
+  if (file.print(message))
   {
-    Serial.println("- binary file written");
+    Serial.println("- file written");
   }
   else
   {
     Serial.println("- write failed");
-    return false;
   }
   file.close();
-  Serial.flush();
-  delay(10);
-  return true;
 }
 
-bool appendBinFile(fs::FS &fs, const char *path, const char *data, uint8_t data_length)
+void appendFile(fs::FS &fs, const char *path, const char *message)
 {
-  uint8_t buffer[256] = {0};
-  size_t file_size = 0;
   Serial.printf("Appending to file: %s\r\n", path);
-  File file = fs.open(path, FILE_READ);
-  uint32_t buffet_address = 0;
-  size_t bytesRead;
-  if (!file || file.isDirectory())
+
+  File file = fs.open(path, FILE_APPEND);
+  if (!file)
   {
     Serial.println("- failed to open file for appending");
-    file_size = 0;
+    return;
+  }
+  if (file.print(message))
+  {
+    Serial.println("- message appended");
   }
   else
   {
-    file_size = file.size();
-    bytesRead = file.readBytes((char *)buffer, file_size);
+    Serial.println("- append failed");
   }
-  Serial.print("file_size:");
-  Serial.println(file_size);
   file.close();
-  memcpy(&buffer[file_size], data, data_length);
+}
 
-  file = fs.open(path, FILE_WRITE);
-
-  file_size = file_size + data_length;
-
-  size_t bytesWritten = file.write((const uint8_t *)buffer, file_size);
-  if (bytesWritten == file_size)
+void renameFile(fs::FS &fs, const char *path1, const char *path2)
+{
+  Serial.printf("Renaming file %s to %s\r\n", path1, path2);
+  if (fs.rename(path1, path2))
   {
-    Serial.println("- binary file written in append process");
+    Serial.println("- file renamed");
   }
   else
   {
-    Serial.println("- write failed in append process");
-    return false;
+    Serial.println("- rename failed");
   }
+}
+
+void deleteFile(fs::FS &fs, const char *path)
+{
+  Serial.printf("Deleting file: %s\r\n", path);
+  if (fs.remove(path))
+  {
+    Serial.println("- file deleted");
+  }
+  else
+  {
+    Serial.println("- delete failed");
+  }
+}
+
+void testFileIO(fs::FS &fs, const char *path)
+{
+  Serial.printf("Testing file I/O with %s\r\n", path);
+
+  static uint8_t buf[512];
+  size_t len = 0;
+  File file = fs.open(path, FILE_WRITE);
+  if (!file)
+  {
+    Serial.println("- failed to open file for writing");
+    return;
+  }
+
+  size_t i;
+  Serial.print("- writing");
+  uint32_t start = millis();
+  for (i = 0; i < 2048; i++)
+  {
+    if ((i & 0x001F) == 0x001F)
+    {
+      Serial.print(".");
+    }
+    file.write(buf, 512);
+  }
+  Serial.println("");
+  uint32_t end = millis() - start;
+  Serial.printf(" - %u bytes written in %lu ms\r\n", 2048 * 512, end);
   file.close();
-  return true;
+
+  file = fs.open(path);
+  start = millis();
+  end = start;
+  i = 0;
+  if (file && !file.isDirectory())
+  {
+    len = file.size();
+    size_t flen = len;
+    start = millis();
+    Serial.print("- reading");
+    while (len)
+    {
+      size_t toRead = len;
+      if (toRead > 512)
+      {
+        toRead = 512;
+      }
+      file.read(buf, toRead);
+      if ((i++ & 0x001F) == 0x001F)
+      {
+        Serial.print(".");
+      }
+      len -= toRead;
+    }
+    Serial.println("");
+    end = millis() - start;
+    Serial.printf("- %u bytes read in %lu ms\r\n", flen, end);
+    file.close();
+  }
+  else
+  {
+    Serial.println("- failed to open file for reading");
+  }
+}
+
+void flash_init()
+{
+  Serial.begin(115200);
+  Serial.setDebugOutput(true);
+  if (FORMAT_FFAT)
+    FFat.format();
+  if (!FFat.begin())
+  {
+    Serial.println("FFat Mount Failed");
+    return;
+  }
+  Serial.printf("Total space: %10u\n", FFat.totalBytes());
+  Serial.printf("Free space: %10u\n", FFat.freeBytes());
+  listDir(FFat, "/", 0);
+  writeFile(FFat, "/hello.txt", "Hello ");
+  appendFile(FFat, "/hello.txt", "World!\r\n");
+  readFile(FFat, "/hello.txt");
+  renameFile(FFat, "/hello.txt", "/foo.txt");
+  readFile(FFat, "/foo.txt");
+  deleteFile(FFat, "/foo.txt");
+  testFileIO(FFat, "/test.txt");
+  Serial.printf("Free space: %10u\n", FFat.freeBytes());
+  deleteFile(FFat, "/test.txt");
+  Serial.println("Test complete");
+  delay(1000);
 }
