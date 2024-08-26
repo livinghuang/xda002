@@ -1,0 +1,102 @@
+---- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
+Hello XDA002
+ESP32ChipID=B0DF9B27843C
+devEUI:88883C84279BDFB0
+devAddr:52557044
+nwkSKey:30303030623064663962323738343363
+appSKey:30303030623064663962323738343363
+XDA-B0DF9B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+360000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 6
+Wakeup was not caused by deep sleep
+XDA-B0DF9B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial840，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
+Hello XDA002
+ESP32ChipID=74F69D27843C
+devEUI:88883C84279DF674
+devAddr:EBE441A8
+nwkSKey:30303030373466363964323738343363
+appSKey:30303030373466363964323738343363
+XDA-74F69D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+E (586) vfs_fat_spiflash: esp_vfs_fat_spiflash_unmount_rw_wl(178): partition isn't registered, call esp_vfs_fat_spiflash_mount_rw_wl first
+FFat Mount Failed
+Flash init failed
+Total space:    1064960
+Free space:    1064960
+Reading file: /upintv.txt
+- failed to open file for reading
+Listing directory: /
+Writing file: /upintv.txt
+- file written
+Flash init failed
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-74F69D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial840，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已關閉序列連接埠 /dev/tty.wchusbserial840，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
+Hello XDA002
+ESP32ChipID=BCDF9B27843C
+devEUI:88883C84279BDFBC
+devAddr:2C884044
+nwkSKey:30303030626364663962323738343363
+appSKey:30303030626364663962323738343363
+XDA-BCDF9B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+E (569) vfs_fat_spiflash: esp_vfs_fat_spiflash_unmount_rw_wl(178): partition isn't registered, call esp_vfs_fat_spiflash_mount_rw_wl first
+FFat Mount Failed
+Flash init failed
+Total space:    1064960
+Free space:    1064960
+Reading file: /upintv.txt
+- failed to open file for reading
+Listing directory: /
+Writing file: /upintv.txt
+- file written
+Flash init failed
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-BCDF9B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
+

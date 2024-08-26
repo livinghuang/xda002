@@ -1,0 +1,112 @@
+[
+    {
+        "type": "up",
+        "payload": {
+            "applicationID": "48",
+            "applicationName": "water_meter",
+            "deviceName": "XDA-58A69E27843C",
+            "devEUI": "iIg8hCeeplg=",
+            "rxInfo": [
+                {
+                    "gatewayID": "iIiIAAAAAAA=",
+                    "time": null,
+                    "timeSinceGPSEpoch": null,
+                    "rssi": -34,
+                    "loRaSNR": 14,
+                    "channel": 5,
+                    "rfChain": 1,
+                    "board": 0,
+                    "antenna": 0,
+                    "location": {
+                        "latitude": 25.005972656239187,
+                        "longitude": -238.40332031250003,
+                        "altitude": 0,
+                        "source": "UNKNOWN",
+                        "accuracy": 0
+                    },
+                    "fineTimestampType": "NONE",
+                    "context": "O11jDQ==",
+                    "uplinkID": "NDfznakwRL+eX9SOeb+jIg==",
+                    "crcStatus": "CRC_OK"
+                }
+            ],
+            "txInfo": {
+                "frequency": 924200000,
+                "modulation": "LORA",
+                "loRaModulationInfo": {
+                    "bandwidth": 125,
+                    "spreadingFactor": 7,
+                    "codeRate": "4/5",
+                    "polarizationInversion": false
+                }
+            },
+            "adr": true,
+            "dr": 5,
+            "fCnt": 2,
+            "fPort": 2,
+            "data": "7f///wAAADGWBAAFAABSNRAgEUc=",
+            "objectJSON": "{\"batteryLevel\":92.94117647058823,\"hexString\":\"edffffff00000031960400050000523510201147\"}",
+            "tags": {},
+            "confirmedUplink": false,
+            "devAddr": "IxRe6A==",
+            "publishedAt": "2024-07-24T21:41:36.203574390Z",
+            "deviceProfileID": "8baaf7ca-c2f7-451e-b685-da1552b35efc",
+            "deviceProfileName": "water_meter"
+        }
+    },
+    {
+        "type": "up",
+        "payload": {
+            "applicationID": "48",
+            "applicationName": "water_meter",
+            "deviceName": "XDA-58A69E27843C",
+            "devEUI": "iIg8hCeeplg=",
+            "rxInfo": [
+                {
+                    "gatewayID": "iIiIAAAAAAA=",
+                    "time": null,
+                    "timeSinceGPSEpoch": null,
+                    "rssi": -41,
+                    "loRaSNR": 13.5,
+                    "channel": 7,
+                    "rfChain": 1,
+                    "board": 0,
+                    "antenna": 0,
+                    "location": {
+                        "latitude": 25.005972656239187,
+                        "longitude": -238.40332031250003,
+                        "altitude": 0,
+                        "source": "UNKNOWN",
+                        "accuracy": 0
+                    },
+                    "fineTimestampType": "NONE",
+                    "context": "GD+92g==",
+                    "uplinkID": "OBRCuUu7SmS1Ed6uwE0Rxg==",
+                    "crcStatus": "CRC_OK"
+                }
+            ],
+            "txInfo": {
+                "frequency": 924600000,
+                "modulation": "LORA",
+                "loRaModulationInfo": {
+                    "bandwidth": 125,
+                    "spreadingFactor": 7,
+                    "codeRate": "4/5",
+                    "polarizationInversion": false
+                }
+            },
+            "adr": true,
+            "dr": 5,
+            "fCnt": 1,
+            "fPort": 2,
+            "data": "AP///wAAADGWBAAFAABSNRAgEUc=",
+            "objectJSON": "{\"batteryLevel\":0,\"hexString\":\"00ffffff00000031960400050000523510201147\"}",
+            "tags": {},
+            "confirmedUplink": false,
+            "devAddr": "IxRe6A==",
+            "publishedAt": "2024-07-24T21:31:47.056346634Z",
+            "deviceProfileID": "8baaf7ca-c2f7-451e-b685-da1552b35efc",
+            "deviceProfileName": "water_meter"
+        }
+    }
+]

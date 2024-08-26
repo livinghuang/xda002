@@ -3,23 +3,23 @@
 #define AT_H
 #include "global.h"
 #define AT
+#define AT_NAME
+#define AT_UPINTV
+#define AT_FORMAT
+
 // #define   AT_BOARD
 // #define   AT_CALIB
 // #define   AT_TEMPOFFSET
-#define AT_UPINTV
-#define AT_FORMAT
-#define AT_CLRMEM
-#define AT_READ
-#define AT_WRITE
-#define AT_INFO
-#define AT_FSHSTOP
-
-extern bool command_executed;
+// #define AT_CLRMEM
+// #define AT_READ
+// #define AT_WRITE
+// #define AT_INFO
+// #define AT_FSHSTOP
 
 void at_start(void);
 void at_reset(void);
 void at_stop(void);
-void at_process();
+// void at_process();
 // void L_printf(const char *data);
 void parseAndExecuteCommand(const char *command);
 // 命令处理函数定义

@@ -7,6 +7,7 @@
 #define LORA_CTS LORA_READY
 void lorawan_init(void);
 void lorawan_process(void);
-void send_to_lora(uint8_t *data);
-void generate_lorawan_parameters_by_chip_id(void);
+// void send_to_lora(uint8_t *data);
+// void generate_lorawan_parameters_by_chip_id(void);
+void generate_lorawan_settings_by_chip_id(void);
 #endif

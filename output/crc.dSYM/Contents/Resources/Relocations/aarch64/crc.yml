@@ -1,0 +1,8 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/living/code/github/xda002/output/crc'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _crc16_modbus, symObjAddr: 0x0, symBinAddr: 0x100003DB4, symSize: 0xE8 }
+  - { offsetInCU: 0x41, offset: 0x41, size: 0x8, addend: 0x0, symName: _crc16_modbus, symObjAddr: 0x0, symBinAddr: 0x100003DB4, symSize: 0xE8 }
+  - { offsetInCU: 0xBD, offset: 0xBD, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0xE8, symBinAddr: 0x100003E9C, symSize: 0xA0 }
+...

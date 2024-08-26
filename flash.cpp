@@ -2,7 +2,7 @@
 #include <FFat.h>
 
 // Define partition schemes
-#define FORMAT_FFAT false
+// #define FORMAT_FFAT false
 
 bool fileExistsInDir(fs::FS &fs, const char *dirname, const char *targetFile)
 {
@@ -70,6 +70,55 @@ void listDir(fs::FS &fs, const char *dirname, uint8_t levels)
     }
     file = root.openNextFile();
   }
+}
+
+char *readName(fs::FS &fs)
+{
+  char *rst = NULL;
+  static char buffer[10];
+  const char *path = "/name.txt";
+  Serial.printf("Reading file: %s\r\n", path);
+  File file = fs.open(path);
+  if (!file || file.isDirectory())
+  {
+    Serial.println("- failed to open file for reading");
+    return rst;
+  }
+  Serial.println("- read from file:");
+  while (file.available())
+  {
+    size_t bytesRead = file.readBytes((char *)buffer, sizeof(buffer));
+    rst = buffer;
+    Serial.println(rst);
+  }
+  file.close();
+  return rst;
+}
+
+uint32_t readUpIntv(fs::FS &fs)
+{
+  uint32_t rst = 0;
+
+  const char *path = "/upintv.txt";
+  Serial.printf("Reading file: %s\r\n", path);
+
+  File file = fs.open(path);
+  if (!file || file.isDirectory())
+  {
+    Serial.println("- failed to open file for reading");
+    return rst;
+  }
+
+  Serial.println("- read from file:");
+  while (file.available())
+  {
+    char buffer[30];
+    size_t bytesRead = file.readBytes((char *)buffer, sizeof(buffer));
+    rst = atol(buffer);
+    Serial.println(rst);
+  }
+  file.close();
+  return rst;
 }
 
 void readFile(fs::FS &fs, const char *path)
@@ -222,9 +271,10 @@ void testFileIO(fs::FS &fs, const char *path)
     Serial.println("- failed to open file for reading");
   }
 }
-
-void flash_init()
+bool FORMAT_FFAT = false;
+bool flash_init()
 {
+  bool rst = false;
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   if (FORMAT_FFAT)
@@ -232,20 +282,31 @@ void flash_init()
   if (!FFat.begin())
   {
     Serial.println("FFat Mount Failed");
-    return;
+    return rst;
   }
   Serial.printf("Total space: %10u\n", FFat.totalBytes());
   Serial.printf("Free space: %10u\n", FFat.freeBytes());
+  // listDir(FFat, "/", 0);
+  // writeFile(FFat, "/upintv.txt", "300000");
+  if (readUpIntv(FFat) == 0)
+  {
+    listDir(FFat, "/", 0);
+    writeFile(FFat, "/upintv.txt", "3600000");
+    return rst;
+  }
+  // writeFile(FFat, "/hello.txt", "Hello ");
+  // appendFile(FFat, "/hello.txt", "World!\r\n");
+  // readFile(FFat, "/hello.txt");
+  // renameFile(FFat, "/hello.txt", "/foo.txt");
+  // readFile(FFat, "/foo.txt");
+  // deleteFile(FFat, "/foo.txt");
+  // testFileIO(FFat, "/test.txt");
+  // Serial.printf("Free space: %10u\n", FFat.freeBytes());
+  // deleteFile(FFat, "/test.txt");
+  // Serial.println("Test complete");
+  // delay(1000);
   listDir(FFat, "/", 0);
-  writeFile(FFat, "/hello.txt", "Hello ");
-  appendFile(FFat, "/hello.txt", "World!\r\n");
-  readFile(FFat, "/hello.txt");
-  renameFile(FFat, "/hello.txt", "/foo.txt");
-  readFile(FFat, "/foo.txt");
-  deleteFile(FFat, "/foo.txt");
-  testFileIO(FFat, "/test.txt");
-  Serial.printf("Free space: %10u\n", FFat.freeBytes());
-  deleteFile(FFat, "/test.txt");
-  Serial.println("Test complete");
-  delay(1000);
+  // delay(1000);
+  rst = true;
+  return rst;
 }

@@ -1,19 +1,18 @@
 #include "global.h"
-
+bool fetch_data_success = false;
 static void prepareTxFrame(uint8_t port);
 /* OTAA para*/
-uint8_t devEui[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x01};
+uint8_t devEui[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x02, 0x02};
 uint8_t appEui[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 uint8_t appKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88};
 
 /* ABP para*/
-uint8_t nwkSKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88};
-uint8_t appSKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88};
-uint32_t devAddr = (uint32_t)0x88888801;
+uint8_t nwkSKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x02, 0x02};
+uint8_t appSKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x02, 0x02};
+uint32_t devAddr = (uint32_t)0x88880202;
 /*LoraWan channelsmask, default channels 0-7*/
 uint16_t userChannelsMask[6] = {0x00FF, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000};
-
-/*LoraWan region,
+/*LoraWan region,`1qw
     LORAMAC_REGION_AS923        //  AS band on 923MHz
     LORAMAC_REGION_AU915        //  Australian band on 915MHz
     LORAMAC_REGION_CN470        //  Chinese band on 470MHz
@@ -34,7 +33,8 @@ LoRaMacRegion_t loraWanRegion = LORAMAC_REGION_AS923_AS2;
 DeviceClass_t loraWanClass = CLASS_A;
 
 /*the application data transmission duty cycle.  value in [ms].*/
-uint32_t appTxDutyCycle = 300000;
+uint32_t appTxDutyCycle = 3600000;
+// uint32_t appTxDutyCycle = 60000;
 
 /*OTAA or ABP*/
 bool overTheAirActivation = false;
@@ -43,7 +43,7 @@ bool overTheAirActivation = false;
 bool loraWanAdr = true;
 
 /* Indicates if the node is sending confirmed or unconfirmed messages */
-bool isTxConfirmed = true;
+bool isTxConfirmed = false;
 
 /* Application port */
 uint8_t appPort = 2;
@@ -69,27 +69,50 @@ uint8_t appPort = 2;
  */
 uint8_t confirmedNbTrials = 4;
 
+void generate_lorawan_settings_by_chip_id()
+{
+    uint64_t chipid = ESP.getEfuseMac();
+    Serial.printf("ESP32ChipID=%04X%08X\n", (uint16_t)(chipid >> 32), (uint32_t)chipid);
+
+    devAddr = (uint32_t)(chipid >> 32) * (uint32_t)chipid;
+    // 将MAC地址转换为字符串形式
+    char chipidStr[17];
+    snprintf(chipidStr, sizeof(chipidStr), "%016llx", chipid);
+
+    Serial.print("devEUI:");
+    memcpy(&devEui[2], &chipid, sizeof(devEui) - 2);
+    print_bytes((uint8_t *)&devEui, sizeof(devEui));
+    Serial.print("devAddr:");
+    print_bytes_reverse((uint8_t *)&devAddr, sizeof(devAddr));
+    memcpy(appSKey, chipidStr, 16);
+    memcpy(nwkSKey, chipidStr, 16);
+    Serial.print("nwkSKey:");
+    print_bytes((uint8_t *)&nwkSKey, sizeof(nwkSKey));
+    Serial.print("appSKey:");
+    print_bytes((uint8_t *)&appSKey, sizeof(appSKey));
+}
+
 void lorawan_init(void)
 {
-#if (LORAWAN_DEVEUI_AUTO)
-    LoRaWAN.generateDeveuiByChipID();
-#endif
     Mcu.begin(HELTEC_BOARD, SLOW_CLK_TPYE);
     deviceState = DEVICE_STATE_INIT;
 }
+RTC_DATA_ATTR time_t last_timestamp = 0;
+RTC_DATA_ATTR bool finish_time_publish = true;
 
 void lorawan_process(void)
 {
+
     switch (deviceState)
     {
     case DEVICE_STATE_INIT:
     {
-#if (LORAWAN_DEVEUI_AUTO)
-        LoRaWAN.generateDeveuiByChipID();
-#endif
         LoRaWAN.init(loraWanClass, loraWanRegion);
         // both set join DR and DR when ADR off
-        LoRaWAN.setDefaultDR(3);
+        if (!loraWanAdr)
+        {
+            LoRaWAN.setDefaultDR(3);
+        }
         break;
     }
     case DEVICE_STATE_JOIN:
@@ -99,15 +122,18 @@ void lorawan_process(void)
     }
     case DEVICE_STATE_SEND:
     {
+        digitalWrite(pVext, HIGH);
+        fetch_data_process();
+
         prepareTxFrame(appPort);
         LoRaWAN.send();
+        digitalWrite(pVext, LOW);
         deviceState = DEVICE_STATE_CYCLE;
         break;
     }
     case DEVICE_STATE_CYCLE:
     {
-        // Schedule next packet transmission
-        txDutyCycleTime = appTxDutyCycle + randr(-APP_TX_DUTYCYCLE_RND, APP_TX_DUTYCYCLE_RND);
+        txDutyCycleTime += randr(-APP_TX_DUTYCYCLE_RND, APP_TX_DUTYCYCLE_RND);
         LoRaWAN.cycle(txDutyCycleTime);
         deviceState = DEVICE_STATE_SLEEP;
         break;
@@ -115,8 +141,6 @@ void lorawan_process(void)
     case DEVICE_STATE_SLEEP:
     {
         LoRaWAN.sleep(loraWanClass);
-        pinMode(pVext, OUTPUT);
-        digitalWrite(pVext, HIGH);
         break;
     }
     default:
@@ -130,5 +154,26 @@ void lorawan_process(void)
 static void prepareTxFrame(uint8_t port)
 {
     Serial.println("Prepare Frame");
-    Serial.flush();
+    if (fetch_data_success)
+    {
+        appDataSize = sizeof(sensor_data);
+        memcpy(&appData, &sensor_data, sizeof(sensor_data));
+        printHex((uint8_t *)&appData, appDataSize);
+        Serial.printf("\nmain_battery_level: %d\n", sensor_data.main_battery_level);
+        Serial.print("deviceName:");
+        printHex((uint8_t *)&sensor_data.water_meter_data.deviceName, sizeof(sensor_data.water_meter_data.deviceName));
+        Serial.print("water_meter_data.totalAccumulation:");
+        printHex((uint8_t *)&sensor_data.water_meter_data.totalAccumulationValue, sizeof(sensor_data.water_meter_data.totalAccumulationValue));
+    }
+    else
+    {
+        if (wakeup_reason == ESP_SLEEP_WAKEUP_UNDEFINED)
+        {
+            appDataSize = 4;
+            appData[0] = 0x00;
+            appData[1] = 0x01;
+            appData[2] = 0x02;
+            appData[3] = 0x03;
+        }
+    }
 }

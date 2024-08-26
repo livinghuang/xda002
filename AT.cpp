@@ -5,11 +5,9 @@ const char ok_string[] = "OK\r\n";
 const char error_string[] = "ERROR\r\n";
 const char Invalid_params_string[] = "Invalid params string\r\n";
 void command_error_handler(void);
-bool command_executed;
 void parseAndExecuteCommand(const char *command);
 char at_buffer[AT_BUFFER];
 typedef void (*CommandHandler)(const char *params);
-void at_print(const char *data);
 
 // 命令列表定义
 typedef struct
@@ -58,7 +56,6 @@ void at_start(void)
   Serial.begin(115200);
   Serial.print("CMD>");
   Serial.setTimeout(5000);
-  bool command_executed = false;
 }
 void at_reset(void)
 {
@@ -67,35 +64,6 @@ void at_reset(void)
 void at_stop(void)
 {
   Serial.end();
-}
-
-void at_process()
-{
-  if (Serial.available())
-  {
-    // Read a string terminated by a newline character '\n'
-    String inputString = Serial.readStringUntil('\n');
-
-    // Check if the read was successful
-    if (inputString.length() > 0)
-    {
-      inputString.toCharArray(at_buffer, sizeof(at_buffer));
-      parseAndExecuteCommand(at_buffer);
-    }
-    else
-    {
-      // Handle the timeout (no data received within the timeout period)
-      Serial.println("Timeout occurred. No data received.");
-    }
-  }
-
-  if (command_executed)
-  {
-    command_executed = false;
-    at_reset();
-    at_start();
-  }
-  vTaskDelay(1);
 }
 
 // 解析和执行命令
@@ -112,7 +80,6 @@ void parseAndExecuteCommand(const char *command)
   {
     // 无效的命令格式，可以进行错误处理
     Serial.println(error_string);
-    command_executed = true;
     return;
   }
 
@@ -129,22 +96,47 @@ void parseAndExecuteCommand(const char *command)
   }
   // 未找到匹配的命令处理函数，可以进行错误处理
   Serial.println(error_string);
-  command_executed = true;
 }
 
 #ifdef AT
 void at(const char *params)
 {
-  at_print("AT OK\r\n");
+  static char answer[] = "AT OK\0";
+  extern char txValueBuffer[];
+  strcpy(txValueBuffer, answer);
+  Serial.println(txValueBuffer);
+  ble_send_data_ready();
 }
 #endif
+
+#ifdef AT_NAME
+void at_name(const char *params)
+{
+  char buffer[10];
+  extern char txValueBuffer[];
+  char *endptr;
+  if ((params == NULL))
+  {
+    // 无效的命令格式，可以进行错误处理
+    Serial.println(error_string);
+    return;
+  }
+  strncpy(buffer, params, 10);
+  buffer[10] = '\0';
+  strcpy(txValueBuffer, buffer);
+  Serial.println(txValueBuffer);
+  writeFile(FFat, "/name.txt", buffer);
+  readName(FFat);
+  ble_send_data_ready();
+}
+#endif
+
 #ifdef AT_CLRMEM
 
 void at_clrmem(const char *params)
 {
   storage_operation = _CLR;
-  at_print(ok_string);
-  command_executed = true;
+  Serial.println(ok_string);
   return;
 }
 #endif
@@ -156,8 +148,7 @@ void at_read(const char *params)
   if ((params == NULL) || (!is_a_string(params, 10)))
   {
     // 无效的命令格式，可以进行错误处理
-    at_print(error_string);
-    command_executed = true;
+    Serial.println(error_string);
     return;
   }
   extern long readQty;
@@ -171,12 +162,11 @@ void at_read(const char *params)
   {
     char buffer[128];
     sprintf(buffer, "readQty:%ld\r\n", readQty);
-    at_print(buffer);
+    Serial.println(buffer);
     storage_operation = _READ;
   }
 
   Serial.println(ok_string);
-  command_executed = true;
   return;
 }
 #endif
@@ -189,8 +179,7 @@ void at_write(const char *params)
   if ((params == NULL) || (!is_a_string(params, 10)))
   {
     // 无效的命令格式，可以进行错误处理
-    at_print(error_string);
-    command_executed = true;
+    Serial.println(error_string);
     return;
   }
 
@@ -206,43 +195,65 @@ void at_write(const char *params)
     // Serial.printf("writeData:%d\n", writeData);
     char buffer[128];
     sprintf(buffer, "writeData:%d\r\n", writeData);
-    at_print(buffer);
+    Serial.println(buffer);
     extern char storage_buffer[];
     memset(storage_buffer, 0, 4);
     memcpy(storage_buffer, &writeData, 2);
     storage_operation = _WRITE;
   }
   Serial.println(ok_string);
-  command_executed = true;
 }
 #endif
 
 #ifdef AT_FORMAT
 void at_format(const char *params)
 {
-  storage_operation = _FORMAT;
-  at_print(ok_string);
-  command_executed = true;
+  extern char txValueBuffer[];
+  if (FFat.format())
+  {
+    strncpy(txValueBuffer, "OK", 3);
+  }
+  else
+  {
+    strncpy(txValueBuffer, "ERROR", 6);
+  }
+  Serial.println(txValueBuffer);
+  ble_send_data_ready();
 }
 #endif
 
 #ifdef AT_UPINTV
 void at_upintv(const char *params)
 {
-  storage_operation = _SET_BRD;
   char *endptr;
-
   if ((params == NULL) || (!is_a_string(params, 10)))
   {
     // 无效的命令格式，可以进行错误处理
-    at_print(error_string);
-    command_executed = true;
+    Serial.println(error_string);
     return;
   }
 
-  long data = strtol(params, &endptr, 10);
-  appTxDutyCycle = data;
-  at_print(ok_string);
+  if (*params == '?')
+  {
+    extern char txValueBuffer[];
+    snprintf(txValueBuffer, 50, "%lu ,OK", appTxDutyCycle);
+    Serial.println(txValueBuffer);
+  }
+  else
+  {
+    long data = strtol(params, &endptr, 10);
+    appTxDutyCycle = data;
+    Serial.flush();
+
+    extern char txValueBuffer[];
+    snprintf(txValueBuffer, 50, "%lu ,OK", appTxDutyCycle);
+    Serial.println(txValueBuffer);
+    char buffer[10];
+    ltoa(appTxDutyCycle, buffer, 10);
+    writeFile(FFat, "/upintv.txt", buffer);
+    readUpIntv(FFat);
+  }
+  ble_send_data_ready();
 }
 #endif
 
@@ -251,23 +262,12 @@ bool at_info_flag = false;
 void at_info(const char *params)
 {
   storage_operation = _INFO;
-  at_print(ok_string);
-  command_executed = true;
+  Serial.println(ok_string);
 }
 #endif
 
 void command_error_handler(void)
 {
-  at_print(Invalid_params_string);
-  at_print(error_string);
-  command_executed = true;
-}
-
-void at_print(const char *data)
-{
-  Serial.print(data);
-  if (deviceConnected)
-  {
-    send_to_ble(data);
-  }
+  Serial.println(Invalid_params_string);
+  Serial.println(error_string);
 }

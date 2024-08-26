@@ -1,0 +1,9 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/living/code/github/xda002/output/parse'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _convetHexToDec, symObjAddr: 0x0, symBinAddr: 0x100003B28, symSize: 0x3C }
+  - { offsetInCU: 0x48, offset: 0x48, size: 0x8, addend: 0x0, symName: _convetHexToDec, symObjAddr: 0x0, symBinAddr: 0x100003B28, symSize: 0x3C }
+  - { offsetInCU: 0x70, offset: 0x70, size: 0x8, addend: 0x0, symName: _parseByteArrayToFloat, symObjAddr: 0x3C, symBinAddr: 0x100003B64, symSize: 0x204 }
+  - { offsetInCU: 0x124, offset: 0x124, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x240, symBinAddr: 0x100003D68, symSize: 0x1C4 }
+...
