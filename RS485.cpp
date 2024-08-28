@@ -216,11 +216,11 @@ void fetchDataForPowerInsufficiencyDaysAndDeviceName(byte *byteArray, int bytesR
 {
   Serial.println("fetchDataForPowerInsufficiencyDaysAndDeviceName");
   memcpy(sensor_data.water_meter_data.deviceName, &byteArray[37], 6);
+  Serial.print("Device Name:");
   printHex(sensor_data.water_meter_data.deviceName, 6);
-  Serial.println();
   memcpy(sensor_data.water_meter_data.powerInsufficiencyDays, &byteArray[29], 2);
+  Serial.print("Power Insufficiency Days:");
   printHex(sensor_data.water_meter_data.powerInsufficiencyDays, 2);
-  Serial.println();
 }
 
 void fetchDataForTotalAccumulatedValue(byte *responseBuffer, int bytesRead)
@@ -228,7 +228,6 @@ void fetchDataForTotalAccumulatedValue(byte *responseBuffer, int bytesRead)
   Serial.println("fetchDataForTotalAccumulatedValue");
   memcpy(sensor_data.water_meter_data.totalAccumulationValue, &responseBuffer[3], sizeof(sensor_data.water_meter_data.totalAccumulationValue));
   printHex(sensor_data.water_meter_data.totalAccumulationValue, sizeof(sensor_data.water_meter_data.totalAccumulationValue));
-  Serial.println();
 }
 
 bool getDataFromRS485(byte modbusQuery[], uint8_t length, void (*parseData)(byte *byteArray, int bytesRead))
@@ -239,6 +238,7 @@ bool getDataFromRS485(byte modbusQuery[], uint8_t length, void (*parseData)(byte
   while (try_count < 3)
   {
     digitalWrite(RE_DE, HIGH); // Enable transmission
+    delay(1);
     Serial1.write(modbusQuery, length);
     Serial1.flush();
     digitalWrite(RE_DE, LOW); // Disable transmission
@@ -256,7 +256,6 @@ bool getDataFromRS485(byte modbusQuery[], uint8_t length, void (*parseData)(byte
       // Process the received bytes here
       Serial.print("Received:");
       printHex(responseBuffer, bytesRead);
-      Serial.println();
       if (checkLegalResponse(responseBuffer, bytesRead))
       {
         parseData(responseBuffer, bytesRead);
@@ -294,9 +293,7 @@ bool rs485_process(void)
     if (get_power_insufficiency_days_and_device_name())
     {
       Serial.println("Get power insufficiency days and device name success");
-      sensor_data.reserve[0] = 0xFF;
-      sensor_data.reserve[1] = 0xFF;
-      sensor_data.reserve[2] = 0xFF;
+      Serial.print("water_meter_data:");
       printHex((uint8_t *)&sensor_data.water_meter_data, sizeof(sensor_data.water_meter_data));
       return true;
     }
@@ -326,8 +323,7 @@ bool fetch_data_process(void)
   {
     return false;
   }
+  Serial.print("sensor_data:");
   printHex((uint8_t *)&sensor_data, sizeof(sensor_data));
-  Serial.println();
-  Serial.flush();
   return true;
 }

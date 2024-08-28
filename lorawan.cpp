@@ -78,7 +78,6 @@ void generate_lorawan_settings_by_chip_id()
     // 将MAC地址转换为字符串形式
     char chipidStr[17];
     snprintf(chipidStr, sizeof(chipidStr), "%016llx", chipid);
-
     Serial.print("devEUI:");
     memcpy(&devEui[2], &chipid, sizeof(devEui) - 2);
     print_bytes((uint8_t *)&devEui, sizeof(devEui));
@@ -97,12 +96,8 @@ void lorawan_init(void)
     Mcu.begin(HELTEC_BOARD, SLOW_CLK_TPYE);
     deviceState = DEVICE_STATE_INIT;
 }
-RTC_DATA_ATTR time_t last_timestamp = 0;
-RTC_DATA_ATTR bool finish_time_publish = true;
-
 void lorawan_process(void)
 {
-
     switch (deviceState)
     {
     case DEVICE_STATE_INIT:
@@ -123,8 +118,7 @@ void lorawan_process(void)
     case DEVICE_STATE_SEND:
     {
         digitalWrite(pVext, HIGH);
-        fetch_data_process();
-
+        fetch_data_success = fetch_data_process();
         prepareTxFrame(appPort);
         LoRaWAN.send();
         digitalWrite(pVext, LOW);
@@ -133,7 +127,7 @@ void lorawan_process(void)
     }
     case DEVICE_STATE_CYCLE:
     {
-        txDutyCycleTime += randr(-APP_TX_DUTYCYCLE_RND, APP_TX_DUTYCYCLE_RND);
+        txDutyCycleTime = appTxDutyCycle + randr(-APP_TX_DUTYCYCLE_RND, APP_TX_DUTYCYCLE_RND);
         LoRaWAN.cycle(txDutyCycleTime);
         deviceState = DEVICE_STATE_SLEEP;
         break;
@@ -154,26 +148,33 @@ void lorawan_process(void)
 static void prepareTxFrame(uint8_t port)
 {
     Serial.println("Prepare Frame");
+    appDataSize = sizeof(sensor_data);
     if (fetch_data_success)
     {
-        appDataSize = sizeof(sensor_data);
+        sensor_data.reserve[0] = 0xFF;
+        sensor_data.reserve[1] = 0xFF;
+        sensor_data.reserve[2] = 0xFF;
         memcpy(&appData, &sensor_data, sizeof(sensor_data));
-        printHex((uint8_t *)&appData, appDataSize);
-        Serial.printf("\nmain_battery_level: %d\n", sensor_data.main_battery_level);
-        Serial.print("deviceName:");
-        printHex((uint8_t *)&sensor_data.water_meter_data.deviceName, sizeof(sensor_data.water_meter_data.deviceName));
-        Serial.print("water_meter_data.totalAccumulation:");
-        printHex((uint8_t *)&sensor_data.water_meter_data.totalAccumulationValue, sizeof(sensor_data.water_meter_data.totalAccumulationValue));
     }
     else
     {
         if (wakeup_reason == ESP_SLEEP_WAKEUP_UNDEFINED)
         {
-            appDataSize = 4;
-            appData[0] = 0x00;
-            appData[1] = 0x01;
-            appData[2] = 0x02;
-            appData[3] = 0x03;
+            memset(&appData, 0, sizeof(sensor_data));
+        }
+        else
+        {
+            sensor_data.reserve[0] = 'e';
+            sensor_data.reserve[1] = 'r';
+            sensor_data.reserve[2] = 'r';
+            memcpy(&appData, &sensor_data, sizeof(sensor_data));
         }
     }
+    Serial.print("appData:");
+    printHex((uint8_t *)&appData, appDataSize);
+    Serial.printf("\nmain_battery_level: %d\n", sensor_data.main_battery_level);
+    Serial.print("deviceName:");
+    printHex((uint8_t *)&sensor_data.water_meter_data.deviceName, sizeof(sensor_data.water_meter_data.deviceName));
+    Serial.print("water_meter_data.totalAccumulation:");
+    printHex((uint8_t *)&sensor_data.water_meter_data.totalAccumulationValue, sizeof(sensor_data.water_meter_data.totalAccumulationValue));
 }

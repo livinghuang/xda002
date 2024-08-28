@@ -16,6 +16,7 @@ void printHex(byte *data, int length)
     }
     Serial.print(data[i], HEX);
     Serial.print(" ");
+    Serial.flush();
   }
   Serial.println(); // Print a newline character at the end
 }
