@@ -11,7 +11,6 @@ uint32_t timestamp;
 esp_sleep_wakeup_cause_t wakeup_reason;
 void setup()
 {
-
   // Mcu.begin(HELTEC_BOARD, SLOW_CLK_TPYE);
   Serial.begin(115200);
   Serial.println("Hello XDA002");

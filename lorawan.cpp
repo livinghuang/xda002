@@ -154,22 +154,18 @@ static void prepareTxFrame(uint8_t port)
         sensor_data.reserve[0] = 0xFF;
         sensor_data.reserve[1] = 0xFF;
         sensor_data.reserve[2] = 0xFF;
-        memcpy(&appData, &sensor_data, sizeof(sensor_data));
     }
     else
     {
         if (wakeup_reason == ESP_SLEEP_WAKEUP_UNDEFINED)
         {
-            memset(&appData, 0, sizeof(sensor_data));
+            memset(&sensor_data, 0, sizeof(sensor_data));
         }
-        else
-        {
-            sensor_data.reserve[0] = 'e';
-            sensor_data.reserve[1] = 'r';
-            sensor_data.reserve[2] = 'r';
-            memcpy(&appData, &sensor_data, sizeof(sensor_data));
-        }
+        sensor_data.reserve[0] = 0;
+        sensor_data.reserve[1] = 0;
+        sensor_data.reserve[2] = 0;
     }
+    memcpy(&appData, &sensor_data, sizeof(sensor_data));
     Serial.print("appData:");
     printHex((uint8_t *)&appData, appDataSize);
     Serial.printf("\nmain_battery_level: %d\n", sensor_data.main_battery_level);

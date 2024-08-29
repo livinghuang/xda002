@@ -140,6 +140,7 @@ void rs485_init()
   Serial1.begin(BAUD_RATE, SERIAL_CONFIG, RO, DI);
   pinMode(RE_DE, OUTPUT);
   digitalWrite(RE_DE, HIGH);
+  delay(100);
 }
 
 bool checkLength(byte *responseBuffer, int bytesRead)
