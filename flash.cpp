@@ -294,6 +294,12 @@ bool flash_init()
     writeFile(FFat, "/upintv.txt", "3600000");
     return rst;
   }
+  else
+  {
+    appTxDutyCycle = readUpIntv(FFat);
+    Serial.printf("upintv:%lu\n", appTxDutyCycle);
+    listDir(FFat, "/", 0);
+  }
   // writeFile(FFat, "/hello.txt", "Hello ");
   // appendFile(FFat, "/hello.txt", "World!\r\n");
   // readFile(FFat, "/hello.txt");
