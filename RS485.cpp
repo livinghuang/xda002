@@ -139,8 +139,7 @@ void rs485_init()
   digitalWrite(pVext, HIGH);
   Serial1.begin(BAUD_RATE, SERIAL_CONFIG, RO, DI);
   pinMode(RE_DE, OUTPUT);
-  digitalWrite(RE_DE, HIGH);
-  delay(100);
+  digitalWrite(RE_DE, LOW);
 }
 
 bool checkLength(byte *responseBuffer, int bytesRead)
@@ -236,7 +235,7 @@ bool getDataFromRS485(byte modbusQuery[], uint8_t length, void (*parseData)(byte
   Serial.print("Sent:");
   printHex(modbusQuery, length);
   uint8_t try_count = 0;
-  while (try_count < 3)
+  while (try_count < 10)
   {
     digitalWrite(RE_DE, HIGH); // Enable transmission
     delay(1);
@@ -269,6 +268,7 @@ bool getDataFromRS485(byte modbusQuery[], uint8_t length, void (*parseData)(byte
     }
     Serial.println("fetch data failed, try again");
     try_count++;
+    delay(100);
   }
   return false;
 }

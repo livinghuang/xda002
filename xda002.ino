@@ -42,6 +42,8 @@ void setup()
     }
   }
   timestamp = millis();
+  pinMode(pVext, OUTPUT);
+  digitalWrite(pVext, HIGH);
   lorawan_init();
 }
 
