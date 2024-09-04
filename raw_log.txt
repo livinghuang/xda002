@@ -1,102 +1,2589 @@
----- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
-Hello XDA002
-ESP32ChipID=B0DF9B27843C
-devEUI:88883C84279BDFB0
-devAddr:52557044
-nwkSKey:30303030623064663962323738343363
-appSKey:30303030623064663962323738343363
-XDA-B0DF9B27843C
+---- 已開啟序列連接埠 /dev/tty.wchusbserial830 ----
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=64DC9C27843C
+devEUI:88883C84279CDC64
+devAddr:A19D1390
+nwkSKey:30303030363464633963323738343363
+appSKey:30303030363464633963323738343363
+XDA-64DC9C27843C
 
 BSP init
 Wakeup was not caused by deep sleep: 0
-Total space:    1064960
-Free space:    1060864
-Reading file: /upintv.txt
-- read from file:
-360000
-Listing directory: /
-  FILE: upintv.txt      SIZE: 6
-Wakeup was not caused by deep sleep
-XDA-B0DF9B27843C
-
-Waiting a client connection to notify...
----- 已關閉序列連接埠 /dev/tty.wchusbserial840，因為與機器中斷連線 ----
----- 已重新開啟序列連接埠 /dev/tty.wchusbserial840 ----
----- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
----- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
-Hello XDA002
-ESP32ChipID=74F69D27843C
-devEUI:88883C84279DF674
-devAddr:EBE441A8
-nwkSKey:30303030373466363964323738343363
-appSKey:30303030373466363964323738343363
-XDA-74F69D27843C
-
-BSP init
-Wakeup was not caused by deep sleep: 0
-E (586) vfs_fat_spiflash: esp_vfs_fat_spiflash_unmount_rw_wl(178): partition isn't registered, call esp_vfs_fat_spiflash_mount_rw_wl first
-FFat Mount Failed
-Flash init failed
-Total space:    1064960
-Free space:    1064960
-Reading file: /upintv.txt
-- failed to open file for reading
-Listing directory: /
-Writing file: /upintv.txt
-- file written
-Flash init failed
 Total space:    1064960
 Free space:    1060864
 Reading file: /upintv.txt
 - read from file:
 3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
 Listing directory: /
   FILE: upintv.txt      SIZE: 7
 Wakeup was not caused by deep sleep
-XDA-74F69D27843C
+XDA-64DC9C27843C
 
 Waiting a client connection to notify...
----- 已關閉序列連接埠 /dev/tty.wchusbserial840，因為與機器中斷連線 ----
----- 已重新開啟序列連接埠 /dev/tty.wchusbserial840 ----
----- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
----- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
----- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
----- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
----- 已關閉序列連接埠 /dev/tty.wchusbserial840，因為與機器中斷連線 ----
----- 已重新開啟序列連接埠 /dev/tty.wchusbserial840 ----
----- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
----- 已開啟序列連接埠 /dev/tty.wchusbserial840 ----
-Hello XDA002
-ESP32ChipID=BCDF9B27843C
-devEUI:88883C84279BDFBC
-devAddr:2C884044
-nwkSKey:30303030626364663962323738343363
-appSKey:30303030626364663962323738343363
-XDA-BCDF9B27843C
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=ECFC9B27843C
+devEUI:88883C84279BFCEC
+devAddr:28CD7B10
+nwkSKey:30303030656366633962323738343363
+appSKey:30303030656366633962323738343363
+XDA-ECFC9B27843C
 
 BSP init
 Wakeup was not caused by deep sleep: 0
-E (569) vfs_fat_spiflash: esp_vfs_fat_spiflash_unmount_rw_wl(178): partition isn't registered, call esp_vfs_fat_spiflash_mount_rw_wl first
-FFat Mount Failed
-Flash init failed
-Total space:    1064960
-Free space:    1064960
-Reading file: /upintv.txt
-- failed to open file for reading
-Listing directory: /
-Writing file: /upintv.txt
-- file written
-Flash init failed
 Total space:    1064960
 Free space:    1060864
 Reading file: /upintv.txt
 - read from file:
 3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
 Listing directory: /
   FILE: upintv.txt      SIZE: 7
 Wakeup was not caused by deep sleep
-XDA-BCDF9B27843C
+XDA-ECFC9B27843C
 
 Waiting a client connection to notify...
----- 已關閉序列連接埠 /dev/tty.wchusbserial840 ----
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=10F89E27843C
+devEUI:88883C84279EF810
+devAddr:AE8BDA20
+nwkSKey:30303030313066383965323738343363
+appSKey:30303030313066383965323738343363
+XDA-10F89E27843C
 
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-10F89E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=24CC9D27843C
+devEUI:88883C84279DCC24
+devAddr:CA15CFD0
+nwkSKey:30303030323463633964323738343363
+appSKey:30303030323463633964323738343363
+XDA-24CC9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-24CC9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=E0029D27843C
+devEUI:88883C84279D02E0
+devAddr:CE038878
+nwkSKey:30303030653030323964323738343363
+appSKey:30303030653030323964323738343363
+XDA-E0029D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-E0029D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=AC939D27843C
+devEUI:88883C84279D93AC
+devAddr:CA893E74
+nwkSKey:30303030616339333964323738343363
+appSKey:30303030616339333964323738343363
+XDA-AC939D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-AC939D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=34B79E27843C
+devEUI:88883C84279EB734
+devAddr:151BB6E4
+nwkSKey:30303030333462373965323738343363
+appSKey:30303030333462373965323738343363
+XDA-34B79E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-34B79E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=20C39C27843C
+devEUI:88883C84279CC320
+devAddr:E2A139B4
+nwkSKey:30303030323063333963323738343363
+appSKey:30303030323063333963323738343363
+XDA-20C39C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-20C39C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=380C9D27843C
+devEUI:88883C84279D0C38
+devAddr:02C752D0
+nwkSKey:30303030333830633964323738343363
+appSKey:30303030333830633964323738343363
+XDA-380C9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-380C9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=70B19C27843C
+devEUI:88883C84279CB170
+devAddr:412CAD7C
+nwkSKey:30303030373062313963323738343363
+appSKey:30303030373062313963323738343363
+XDA-70B19C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-70B19C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=D8F09B27843C
+devEUI:88883C84279BF0D8
+devAddr:CC9E9840
+nwkSKey:30303030643866303962323738343363
+appSKey:30303030643866303962323738343363
+XDA-D8F09B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-D8F09B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=8CD49B27843C
+devEUI:88883C84279BD48C
+devAddr:190A51B0
+nwkSKey:30303030386364343962323738343363
+appSKey:30303030386364343962323738343363
+XDA-8CD49B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-8CD49B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=38239D27843C
+devEUI:88883C84279D2338
+devAddr:21543434
+nwkSKey:30303030333832333964323738343363
+appSKey:30303030333832333964323738343363
+XDA-38239D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-38239D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ±Hello XDA002
+ESP32ChipID=C0BE9E27843C
+devEUI:88883C84279EBEC0
+devAddr:04812488
+nwkSKey:30303030633062653965323738343363
+appSKey:30303030633062653965323738343363
+XDA-C0BE9E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-C0BE9E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=6CA09D27843C
+devEUI:88883C84279DA06C
+devAddr:E47BF580
+nwkSKey:30303030366361303964323738343363
+appSKey:30303030366361303964323738343363
+XDA-6CA09D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-6CA09D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ±Hello XDA002
+ESP32ChipID=D0FE9E27843C
+devEUI:88883C84279EFED0
+devAddr:06A5F388
+nwkSKey:30303030643066653965323738343363
+appSKey:30303030643066653965323738343363
+XDA-D0FE9E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-D0FE9E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=040A9F27843C
+devEUI:88883C84279F0A04
+devAddr:D59C1A58
+nwkSKey:30303030303430613966323738343363
+appSKey:30303030303430613966323738343363
+XDA-040A9F27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-040A9F27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=8CEF9B27843C
+devEUI:88883C84279BEF8C
+devAddr:76354404
+nwkSKey:30303030386365663962323738343363
+appSKey:30303030386365663962323738343363
+XDA-8CEF9B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-8CEF9B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=A8A89C27843C
+devEUI:88883C84279CA8A8
+devAddr:68B62760
+nwkSKey:30303030613861383963323738343363
+appSKey:30303030613861383963323738343363
+XDA-A8A89C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-A8A89C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=20C19E27843C
+devEUI:88883C84279EC120
+devAddr:2C52313C
+nwkSKey:30303030323063313965323738343363
+appSKey:30303030323063313965323738343363
+XDA-20C19E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-20C19E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=E8DF9D27843C
+devEUI:88883C84279DDFE8
+devAddr:B5429044
+nwkSKey:30303030653864663964323738343363
+appSKey:30303030653864663964323738343363
+XDA-E8DF9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-E8DF9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=F8ED9B27843C
+devEUI:88883C84279BEDF8
+devAddr:EBAF8B8C
+nwkSKey:30303030663865643962323738343363
+appSKey:30303030663865643962323738343363
+XDA-F8ED9B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-F8ED9B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=80909D27843C
+devEUI:88883C84279D9080
+devAddr:285861C0
+nwkSKey:30303030383039303964323738343363
+appSKey:30303030383039303964323738343363
+XDA-80909D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-80909D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=DCD39E27843C
+devEUI:88883C84279ED3DC
+devAddr:50358D74
+nwkSKey:30303030646364333965323738343363
+appSKey:30303030646364333965323738343363
+XDA-DCD39E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-DCD39E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=6CE99B27843C
+devEUI:88883C84279BE96C
+devAddr:E2C0AA9C
+nwkSKey:30303030366365393962323738343363
+appSKey:30303030366365393962323738343363
+XDA-6CE99B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-6CE99B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=F0B69E27843C
+devEUI:88883C84279EB6F0
+devAddr:7C1042A8
+nwkSKey:30303030663062363965323738343363
+appSKey:30303030663062363965323738343363
+XDA-F0B69E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-F0B69E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=E4B59D27843C
+devEUI:88883C84279DB5E4
+devAddr:4EB5EE6C
+nwkSKey:30303030653462353964323738343363
+appSKey:30303030653462353964323738343363
+XDA-E4B59D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-E4B59D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=70FA9D27843C
+devEUI:88883C84279DFA70
+devAddr:C2716298
+nwkSKey:30303030373066613964323738343363
+appSKey:30303030373066613964323738343363
+XDA-70FA9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-70FA9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=78AD9C27843C
+devEUI:88883C84279CAD78
+devAddr:0CB07C8C
+nwkSKey:30303030373861643963323738343363
+appSKey:30303030373861643963323738343363
+XDA-78AD9C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-78AD9C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=D0019E27843C
+devEUI:88883C84279E01D0
+devAddr:B998443C
+nwkSKey:30303030643030313965323738343363
+appSKey:30303030643030313965323738343363
+XDA-D0019E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-D0019E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=D07E9D27843C
+devEUI:88883C84279D7ED0
+devAddr:74E3D588
+nwkSKey:30303030643037653964323738343363
+appSKey:30303030643037653964323738343363
+XDA-D07E9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-D07E9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=28249F27843C
+devEUI:88883C84279F2428
+devAddr:8E37F870
+nwkSKey:30303030323832343966323738343363
+appSKey:30303030323832343966323738343363
+XDA-28249F27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-28249F27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ±Hello XDA002
+ESP32ChipID=8C959C27843C
+devEUI:88883C84279C958C
+devAddr:7F50C6EC
+nwkSKey:30303030386339353963323738343363
+appSKey:30303030386339353963323738343363
+XDA-8C959C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-8C959C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=34CC9D27843C
+devEUI:88883C84279DCC34
+devAddr:42598FD0
+nwkSKey:30303030333463633964323738343363
+appSKey:30303030333463633964323738343363
+XDA-34CC9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-34CC9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=C4D69C27843C
+devEUI:88883C84279CD6C4
+devAddr:CA467A28
+nwkSKey:30303030633464363963323738343363
+appSKey:30303030633464363963323738343363
+XDA-C4D69C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-C4D69C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=F00C9D27843C
+devEUI:88883C84279D0CF0
+devAddr:69D272D0
+nwkSKey:30303030663030633964323738343363
+appSKey:30303030663030633964323738343363
+XDA-F00C9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-F00C9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=68C69E27843C
+devEUI:88883C84279EC668
+devAddr:6048A668
+nwkSKey:30303030363863363965323738343363
+appSKey:30303030363863363965323738343363
+XDA-68C69E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-68C69E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=FCFA9E27843C
+devEUI:88883C84279EFAFC
+devAddr:58C23298
+nwkSKey:30303030666366613965323738343363
+appSKey:30303030666366613965323738343363
+XDA-FCFA9E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-FCFA9E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=18F79D27843C
+devEUI:88883C84279DF718
+devAddr:558635E4
+nwkSKey:30303030313866373964323738343363
+appSKey:30303030313866373964323738343363
+XDA-18F79D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-18F79D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=A49F9C27843C
+devEUI:88883C84279C9FA4
+devAddr:4D419144
+nwkSKey:30303030613439663963323738343363
+appSKey:30303030613439663963323738343363
+XDA-A49F9C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-A49F9C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=BCDC9C27843C
+devEUI:88883C84279CDCBC
+devAddr:3711B390
+nwkSKey:30303030626364633963323738343363
+appSKey:30303030626364633963323738343363
+XDA-BCDC9C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-BCDC9C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=CCFF9E27843C
+devEUI:88883C84279EFFCC
+devAddr:06BC87C4
+nwkSKey:30303030636366663965323738343363
+appSKey:30303030636366663965323738343363
+XDA-CCFF9E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-CCFF9E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=58F19E27843C
+devEUI:88883C84279EF158
+devAddr:78A81C7C
+nwkSKey:30303030353866313965323738343363
+appSKey:30303030353866313965323738343363
+XDA-58F19E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-58F19E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=C0E69D27843C
+devEUI:88883C84279DE6C0
+devAddr:D4ADCDE8
+nwkSKey:30303030633065363964323738343363
+appSKey:30303030633065363964323738343363
+XDA-C0E69D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-C0E69D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=F0D89C27843C
+devEUI:88883C84279CD8F0
+devAddr:CD4FD2A0
+nwkSKey:30303030663064383963323738343363
+appSKey:30303030663064383963323738343363
+XDA-F0D89C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-F0D89C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=340C9D27843C
+devEUI:88883C84279D0C34
+devAddr:64B662D0
+nwkSKey:30303030333430633964323738343363
+appSKey:30303030333430633964323738343363
+XDA-340C9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-340C9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=E8D09B27843C
+devEUI:88883C84279BD0E8
+devAddr:DFF1D0C0
+nwkSKey:30303030653864303962323738343363
+appSKey:30303030653864303962323738343363
+XDA-E8D09B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-E8D09B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=BCF69B27843C
+devEUI:88883C84279BF6BC
+devAddr:1D1521A8
+nwkSKey:30303030626366363962323738343363
+appSKey:30303030626366363962323738343363
+XDA-BCF69B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-BCF69B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=34C29D27843C
+devEUI:88883C84279DC234
+devAddr:1ECE6578
+nwkSKey:30303030333463323964323738343363
+appSKey:30303030333463323964323738343363
+XDA-34C29D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-34C29D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=FCDC9B27843C
+devEUI:88883C84279BDCFC
+devAddr:3C20B390
+nwkSKey:30303030666364633962323738343363
+appSKey:30303030666364633962323738343363
+XDA-FCDC9B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-FCDC9B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=AC839D27843C
+devEUI:88883C84279D83AC
+devAddr:F810FAB4
+nwkSKey:30303030616338333964323738343363
+appSKey:30303030616338333964323738343363
+XDA-AC839D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-AC839D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=FCD89D27843C
+devEUI:88883C84279DD8FC
+devAddr:7F82A2A0
+nwkSKey:30303030666364383964323738343363
+appSKey:30303030666364383964323738343363
+XDA-FCD89D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-FCD89D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=A8949C27843C
+devEUI:88883C84279C94A8
+devAddr:359FD2B0
+nwkSKey:30303030613839343963323738343363
+appSKey:30303030613839343963323738343363
+XDA-A8949C27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-A8949C27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=7C239D27843C
+devEUI:88883C84279D237C
+devAddr:A0742434
+nwkSKey:30303030376332333964323738343363
+appSKey:30303030376332333964323738343363
+XDA-7C239D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-7C239D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=B08E9D27843C
+devEUI:88883C84279D8EB0
+devAddr:56D49948
+nwkSKey:30303030623038653964323738343363
+appSKey:30303030623038653964323738343363
+XDA-B08E9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-B08E9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ±Hello XDA002
+ESP32ChipID=F00E9F27843C
+devEUI:88883C84279F0EF0
+devAddr:C0217B48
+nwkSKey:30303030663030653966323738343363
+appSKey:30303030663030653966323738343363
+XDA-F00E9F27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-F00E9F27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=340E9D27843C
+devEUI:88883C84279D0E34
+devAddr:9F056B48
+nwkSKey:30303030333430653964323738343363
+appSKey:30303030333430653964323738343363
+XDA-340E9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-340E9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=A0C89B27843C
+devEUI:88883C84279BC8A0
+devAddr:E984CEE0
+nwkSKey:30303030613063383962323738343363
+appSKey:30303030613063383962323738343363
+XDA-A0C89B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-A0C89B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=9CC69D27843C
+devEUI:88883C84279DC69C
+devAddr:A124D668
+nwkSKey:30303030396363363964323738343363
+appSKey:30303030396363363964323738343363
+XDA-9CC69D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-9CC69D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=44C09E27843C
+devEUI:88883C84279EC044
+devAddr:1CC31D00
+nwkSKey:30303030343463303965323738343363
+appSKey:30303030343463303965323738343363
+XDA-44C09E27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-44C09E27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=08889D27843C
+devEUI:88883C84279D8808
+devAddr:B9201FE0
+nwkSKey:30303030303838383964323738343363
+appSKey:30303030303838383964323738343363
+XDA-08889D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-08889D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=20A79D27843C
+devEUI:88883C84279DA720
+devAddr:754EC324
+nwkSKey:30303030323061373964323738343363
+appSKey:30303030323061373964323738343363
+XDA-20A79D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-20A79D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=5CFA9D27843C
+devEUI:88883C84279DFA5C
+devAddr:AC1CB298
+nwkSKey:30303030356366613964323738343363
+appSKey:30303030356366613964323738343363
+XDA-5CFA9D27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-5CFA9D27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=A4179F27843C
+devEUI:88883C84279F17A4
+devAddr:9D435164
+nwkSKey:30303030613431373966323738343363
+appSKey:30303030613431373966323738343363
+XDA-A4179F27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-A4179F27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----
+---- 已重新開啟序列連接埠 /dev/tty.wchusbserial830 ----
+Waiting a client connection to notify...
+ESP-ROM:esp32c3-api1-20210207
+Build:Feb  7 2021
+rst:0x1 (POWERON),boot:0xc (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fcd5820,len:0x458
+load:0x403cc710,len:0x814
+load:0x403ce710,len:0x2880
+entry 0x403cc710
+E (213) esp_core_dump_flash: No core dump partition found!
+E (213) esp_core_dump_flash: No ìHello XDA002
+ESP32ChipID=C4ED9B27843C
+devEUI:88883C84279BEDC4
+devAddr:E4D35B8C
+nwkSKey:30303030633465643962323738343363
+appSKey:30303030633465643962323738343363
+XDA-C4ED9B27843C
+
+BSP init
+Wakeup was not caused by deep sleep: 0
+Total space:    1064960
+Free space:    1060864
+Reading file: /upintv.txt
+- read from file:
+3600000
+Reading file: /upintv.txt
+- read from file:
+3600000
+upintv:3600000
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Listing directory: /
+  FILE: upintv.txt      SIZE: 7
+Wakeup was not caused by deep sleep
+XDA-C4ED9B27843C
+
+Waiting a client connection to notify...
+---- 已關閉序列連接埠 /dev/tty.wchusbserial830，因為與機器中斷連線 ----

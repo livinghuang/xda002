@@ -12,7 +12,7 @@ uint8_t appSKey[] = {0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88, 0x88,
 uint32_t devAddr = (uint32_t)0x88880202;
 /*LoraWan channelsmask, default channels 0-7*/
 uint16_t userChannelsMask[6] = {0x00FF, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000};
-/*LoraWan region,`1qw
+/*LoraWan region,
     LORAMAC_REGION_AS923        //  AS band on 923MHz
     LORAMAC_REGION_AU915        //  Australian band on 915MHz
     LORAMAC_REGION_CN470        //  Chinese band on 470MHz
